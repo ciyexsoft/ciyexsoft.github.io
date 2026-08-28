@@ -4,6 +4,7 @@ import Layout from '@theme/Layout';
 import Heading from '@theme/Heading';
 
 import { HIMS_MODULE_GROUPS, HIMS_MODULES } from '@site/src/data/himsModules';
+import { HimsIcon } from '@site/src/data/himsIcons';
 import styles from '@site/src/pages/hims.module.css';
 
 /**
@@ -44,15 +45,23 @@ export default function Modules(): ReactNode {
 				<div className={styles.container}>
 					{HIMS_MODULE_GROUPS.map((group) => (
 						<section key={group.id} id={group.id} className={styles.group}>
-							<div className={styles.groupHead}>
-								<Heading as="h2" className={styles.groupTitle}>
-									{group.label}
-								</Heading>
-								<p className={styles.groupBlurb}>{group.blurb}</p>
+							<div className={styles.groupHead} data-reveal>
+								<span className={styles.groupIcon}>
+									<HimsIcon name={group.icon} size={22} />
+								</span>
+								<div>
+									<Heading as="h2" className={styles.groupTitle}>
+										{group.label}
+									</Heading>
+									<p className={styles.groupBlurb}>{group.blurb}</p>
+								</div>
 							</div>
-							<div className={styles.detailGrid}>
+							<div className={styles.detailGrid} data-reveal>
 								{group.modules.map((module) => (
 									<article key={module.code} className={styles.detailCard}>
+										<span className={styles.detailIcon}>
+											<HimsIcon name={module.icon} size={26} />
+										</span>
 										<Heading as="h3" className={styles.detailName}>
 											{module.name}
 										</Heading>

@@ -4,6 +4,7 @@ import Layout from '@theme/Layout';
 import Heading from '@theme/Heading';
 
 import { HIMS_MODULE_GROUPS, HIMS_MODULES } from '@site/src/data/himsModules';
+import { HimsIcon, type HimsIconName } from '@site/src/data/himsIcons';
 import styles from '@site/src/pages/hims.module.css';
 
 /**
@@ -68,25 +69,25 @@ function Hero() {
 
 /* ── The patient journey ── */
 
-const JOURNEY: readonly { title: string; entries: readonly string[] }[] = [
+const JOURNEY: readonly { title: string; icon: HimsIconName; entries: readonly string[] }[] = [
 	{
-		title: 'Front Desk',
+		title: 'Front Desk', icon: 'front-desk',
 		entries: ['Registration & UHID', 'Appointments & queue', 'Display board', 'Billing & cashier'],
 	},
 	{
-		title: 'Patient Care',
+		title: 'Patient Care', icon: 'opd',
 		entries: ['OPD', 'Emergency', 'Admission & wards', 'Nursing station', 'Operation theatre'],
 	},
 	{
-		title: 'Departments',
+		title: 'Departments', icon: 'diagnostics',
 		entries: ['Laboratory', 'Radiology & PACS', 'Pharmacy', 'Stores', 'Blood bank'],
 	},
 	{
-		title: 'Records',
+		title: 'Records', icon: 'records',
 		entries: ['Discharge checklist', 'Discharge summary', 'Final bill', 'Medical records'],
 	},
 	{
-		title: 'Administration',
+		title: 'Administration', icon: 'admin',
 		entries: ['HR & payroll', 'Ambulance', 'Accounts & day book', 'Machines & interfaces'],
 	},
 ];
@@ -95,7 +96,7 @@ function JourneySection() {
 	return (
 		<section className={styles.journey}>
 			<div className={styles.container}>
-				<div className={styles.journeyHead}>
+				<div className={styles.journeyHead} data-reveal>
 					<div className={styles.sectionLabel}>How Ciyex HIMS works</div>
 					<Heading as="h2" className={styles.sectionTitle}>
 						Built in the order a patient moves.
@@ -106,10 +107,15 @@ function JourneySection() {
 						morning is the same list you see here.
 					</p>
 				</div>
-				<div className={styles.journeyRow}>
+				<div className={styles.journeyRow} data-reveal>
 					{JOURNEY.map((step, i) => (
 						<div key={step.title} className={styles.journeyStep}>
-							<div className={styles.journeyIndex}>STEP {i + 1}</div>
+							<div className={styles.journeyTop}>
+								<span className={styles.journeyIcon}>
+									<HimsIcon name={step.icon} size={20} />
+								</span>
+								<div className={styles.journeyIndex}>STEP {i + 1}</div>
+							</div>
 							<h3 className={styles.journeyTitle}>{step.title}</h3>
 							<ul className={styles.journeyList}>
 								{step.entries.map((entry) => (
@@ -141,7 +147,7 @@ function ModulesPreview() {
 	return (
 		<section className={styles.modulesPreview}>
 			<div className={styles.container}>
-				<div className={styles.journeyHead}>
+				<div className={styles.journeyHead} data-reveal>
 					<div className={styles.sectionLabel}>Modules</div>
 					<Heading as="h2" className={styles.sectionTitle}>
 						Everything a hospital runs on.
@@ -151,9 +157,12 @@ function ModulesPreview() {
 						never sees the rest — a clinic with no theatre never gets an OT menu.
 					</p>
 				</div>
-				<div className={styles.moduleGrid}>
+				<div className={styles.moduleGrid} data-reveal>
 					{highlights.map((module) => (
 						<div key={module!.code} className={styles.moduleCard}>
+							<span className={styles.moduleCardIcon}>
+								<HimsIcon name={module!.icon} size={24} />
+							</span>
 							<h3 className={styles.moduleCardName}>{module!.name}</h3>
 							<p className={styles.moduleCardSummary}>{module!.summary}</p>
 						</div>
@@ -204,7 +213,7 @@ function AbdmSection() {
 						Talk to us about ABDM
 					</Link>
 				</div>
-				<div className={styles.abdmPanel}>
+				<div className={styles.abdmPanel} data-reveal>
 					<div className={styles.abdmPanelHead}>
 						<span>ABDM Integration</span>
 						<span className={styles.abdmPill}>Active</span>
@@ -296,7 +305,7 @@ function CapabilitiesSection() {
 	return (
 		<section className={styles.capabilities}>
 			<div className={styles.container}>
-				<div className={styles.capHead}>
+				<div className={styles.capHead} data-reveal>
 					<div className={styles.sectionLabel}>Why Ciyex</div>
 					<Heading as="h2" className={styles.sectionTitle}>
 						The things that decide it.
@@ -306,7 +315,7 @@ function CapabilitiesSection() {
 						actually asks before it changes systems.
 					</p>
 				</div>
-				<div className={styles.capGrid}>
+				<div className={styles.capGrid} data-reveal>
 					{CAPABILITIES.map((cap) => (
 						<div key={cap.title} className={styles.capItem}>
 							<h3 className={styles.capTitle}>{cap.title}</h3>
@@ -340,7 +349,7 @@ function WorkspaceSection() {
 						Explore Ciyex Workspace
 					</Link>
 				</div>
-				<div className={styles.mockupWindow}>
+				<div className={styles.mockupWindow} data-reveal>
 					<div className={styles.mockupBar}>
 						<span className={styles.dot} style={{ background: '#ff5f57' }} />
 						<span className={styles.dot} style={{ background: '#febc2e' }} />
@@ -399,13 +408,13 @@ function FaqSection() {
 	return (
 		<section className={styles.faq}>
 			<div className={styles.container}>
-				<div className={styles.faqHead}>
+				<div className={styles.faqHead} data-reveal>
 					<div className={styles.sectionLabel}>FAQ</div>
 					<Heading as="h2" className={styles.sectionTitle}>
 						Questions hospitals ask us.
 					</Heading>
 				</div>
-				<div className={styles.faqList}>
+				<div className={styles.faqList} data-reveal>
 					{FAQ.map((item) => (
 						<details key={item.q} className={styles.faqItem}>
 							<summary>{item.q}</summary>

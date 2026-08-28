@@ -477,7 +477,8 @@ html[lang='en-IN'] {
 
   /* Consumed by hims.module.css. */
   --hims-glow: rgba(29, 78, 216, 0.17);
-  --hims-glow-strong: rgba(29, 78, 216, 0.32);
+  --hims-glow-strong: rgba(29, 78, 216, 0.22);
+  --hims-aurora-2: rgba(14, 165, 233, 0.20);
   --hims-gradient-end: #0f766e;
 
   --cx-brand-from: #1d4ed8;
@@ -499,7 +500,8 @@ html[lang='en-IN'][data-theme='dark'] {
   --docusaurus-highlighted-code-line-bg: rgba(96, 165, 250, 0.15);
 
   --hims-glow: rgba(59, 130, 246, 0.2);
-  --hims-glow-strong: rgba(37, 99, 235, 0.4);
+  --hims-glow-strong: rgba(37, 99, 235, 0.28);
+  --hims-aurora-2: rgba(56, 189, 248, 0.18);
   --hims-gradient-end: #2dd4bf;
 
   --cx-brand-from: #60a5fa;
@@ -507,4 +509,66 @@ html[lang='en-IN'][data-theme='dark'] {
   --cx-brand-to: #38bdf8;
   --cx-brand-to-rgb: 56, 189, 248;
   --cx-primary-rgb: 96, 165, 250;
+}
+
+
+/* ──────────────────────────────────────────────────────────────────────────
+ * Frosted navbar.
+ *
+ * The bar was already sticky and already translucent; without a blur behind it
+ * the page just showed through as muddle when content scrolled under. The blur
+ * is what makes the translucency read as glass rather than as a mistake.
+ * `-webkit-` first for Safari, which still wants the prefix.
+ * ────────────────────────────────────────────────────────────────────────── */
+.navbar {
+  -webkit-backdrop-filter: saturate(180%) blur(18px);
+  backdrop-filter: saturate(180%) blur(18px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+}
+
+.navbar__item.navbar__link,
+.navbar .dropdown > .navbar__link {
+  border-radius: 999px;
+  padding: 0.35rem 0.85rem;
+  transition: background 0.2s ease, color 0.2s ease;
+}
+
+.navbar__item.navbar__link:hover,
+.navbar .dropdown > .navbar__link:hover {
+  background: rgba(255, 255, 255, 0.1);
+  color: #ffffff;
+}
+
+.navbar__item.navbar__link--active {
+  background: rgba(255, 255, 255, 0.12);
+  color: #ffffff;
+}
+
+/* ──────────────────────────────────────────────────────────────────────────
+ * Scroll reveal.
+ *
+ * The hiding is gated on `.reveal-ready`, which only the client module adds.
+ * So the content ships visible in the HTML: no JavaScript, a failed chunk, or a
+ * crawler that does not run scripts all still get the whole page — unlike the
+ * reveal-on-scroll sites this borrows from, which render an empty shell.
+ * ────────────────────────────────────────────────────────────────────────── */
+html.reveal-ready [data-reveal] {
+  opacity: 0;
+  transform: translateY(18px);
+  transition: opacity 0.6s cubic-bezier(0.22, 1, 0.36, 1),
+              transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+  will-change: opacity, transform;
+}
+
+html.reveal-ready [data-reveal].is-revealed {
+  opacity: 1;
+  transform: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html.reveal-ready [data-reveal] {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
 }

@@ -188,6 +188,7 @@ const config: Config = {
 
   clientModules: [
     './src/clientModules/ga4Events.ts',
+    './src/clientModules/scrollReveal.ts',
   ],
 
   themeConfig: {

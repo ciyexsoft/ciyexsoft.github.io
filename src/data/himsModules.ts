@@ -13,6 +13,8 @@
  * a page that invites them to book a demo.
  */
 
+import type { HimsIconName } from './himsIcons';
+
 export interface HimsModule {
 	/** The module code in the backend catalogue. Not shown, but keeps the two lists honest. */
 	readonly code: string;
@@ -21,6 +23,8 @@ export interface HimsModule {
 	readonly summary: string;
 	/** What the module actually does day to day, as the workspace presents it. */
 	readonly points: readonly string[];
+	/** The same glyph the module carries in the workspace sidebar. */
+	readonly icon: HimsIconName;
 }
 
 export interface HimsModuleGroup {
@@ -28,17 +32,20 @@ export interface HimsModuleGroup {
 	readonly label: string;
 	/** Why this group exists, in the words of the people who work in it. */
 	readonly blurb: string;
+	readonly icon: HimsIconName;
 	readonly modules: readonly HimsModule[];
 }
 
 export const HIMS_MODULE_GROUPS: readonly HimsModuleGroup[] = [
 	{
 		id: 'front-desk',
+		icon: 'front-desk',
 		label: 'Front Desk',
 		blurb: 'Where the patient arrives, waits, and pays.',
 		modules: [
 			{
 				code: 'REGISTRATION',
+				icon: 'uhid-card',
 				name: 'Patient Registration / UHID',
 				summary: 'Patient registration, UHID allocation, patient categories and ID cards.',
 				points: [
@@ -50,6 +57,7 @@ export const HIMS_MODULE_GROUPS: readonly HimsModuleGroup[] = [
 			},
 			{
 				code: 'APPOINTMENT',
+				icon: 'calendar',
 				name: 'Appointments & Queue',
 				summary: 'Appointment booking, token generation, queue console and display board.',
 				points: [
@@ -61,6 +69,7 @@ export const HIMS_MODULE_GROUPS: readonly HimsModuleGroup[] = [
 			},
 			{
 				code: 'BILLING',
+				icon: 'receipt',
 				name: 'Billing & Cashier',
 				summary: 'Service master, tariffs, charge capture, bills, receipts, GST and refunds.',
 				points: [
@@ -74,11 +83,13 @@ export const HIMS_MODULE_GROUPS: readonly HimsModuleGroup[] = [
 	},
 	{
 		id: 'patient-care',
+		icon: 'opd',
 		label: 'Patient Care',
 		blurb: 'Consultation, casualty, the ward and the theatre.',
 		modules: [
 			{
 				code: 'OPD',
+				icon: 'stethoscope',
 				name: 'OPD Management',
 				summary: 'Outpatient visits, consultation fees, follow-up rules and OPD workflow.',
 				points: [
@@ -90,6 +101,7 @@ export const HIMS_MODULE_GROUPS: readonly HimsModuleGroup[] = [
 			},
 			{
 				code: 'EMERGENCY',
+				icon: 'casualty',
 				name: 'Emergency / Casualty',
 				summary: 'Casualty registration, triage and MLC handling.',
 				points: [
@@ -101,6 +113,7 @@ export const HIMS_MODULE_GROUPS: readonly HimsModuleGroup[] = [
 			},
 			{
 				code: 'IPD',
+				icon: 'ward-bed',
 				name: 'IPD / Admission (ADT)',
 				summary: 'Admission, discharge and transfer, IP number allocation and case sheets.',
 				points: [
@@ -112,6 +125,7 @@ export const HIMS_MODULE_GROUPS: readonly HimsModuleGroup[] = [
 			},
 			{
 				code: 'BED_MANAGEMENT',
+				icon: 'bed-board',
 				name: 'Bed & Ward Management',
 				summary: 'Wards, room categories, bed master, allocation and occupancy board.',
 				points: [
@@ -123,6 +137,7 @@ export const HIMS_MODULE_GROUPS: readonly HimsModuleGroup[] = [
 			},
 			{
 				code: 'NURSING',
+				icon: 'nursing',
 				name: 'Nursing Management',
 				summary: 'Nursing notes, vitals charting, medication administration and shift handover.',
 				points: [
@@ -134,6 +149,7 @@ export const HIMS_MODULE_GROUPS: readonly HimsModuleGroup[] = [
 			},
 			{
 				code: 'OT',
+				icon: 'theatre',
 				name: 'Operation Theatre',
 				summary: 'OT scheduling, surgery notes, consumables and OT charge capture.',
 				points: [
@@ -147,11 +163,13 @@ export const HIMS_MODULE_GROUPS: readonly HimsModuleGroup[] = [
 	},
 	{
 		id: 'departments',
+		icon: 'diagnostics',
 		label: 'Departments',
 		blurb: 'Diagnostics, medicines and the stores behind them.',
 		modules: [
 			{
 				code: 'LABORATORY',
+				icon: 'blood-tube',
 				name: 'Laboratory / LIS',
 				summary: 'Lab test master, sample collection, result entry and lab billing.',
 				points: [
@@ -163,6 +181,7 @@ export const HIMS_MODULE_GROUPS: readonly HimsModuleGroup[] = [
 			},
 			{
 				code: 'RADIOLOGY',
+				icon: 'x-ray',
 				name: 'Radiology / RIS & PACS',
 				summary: 'Radiology orders, reporting templates and PACS integration.',
 				points: [
@@ -174,6 +193,7 @@ export const HIMS_MODULE_GROUPS: readonly HimsModuleGroup[] = [
 			},
 			{
 				code: 'PHARMACY',
+				icon: 'capsule',
 				name: 'Pharmacy',
 				summary: 'Drug master, batch/expiry, dispensing, pharmacy billing and returns.',
 				points: [
@@ -185,6 +205,7 @@ export const HIMS_MODULE_GROUPS: readonly HimsModuleGroup[] = [
 			},
 			{
 				code: 'INVENTORY',
+				icon: 'stores',
 				name: 'Inventory / Stores',
 				summary: 'Indents, purchase orders, GRN, stock issue and consumption.',
 				points: [
@@ -196,6 +217,7 @@ export const HIMS_MODULE_GROUPS: readonly HimsModuleGroup[] = [
 			},
 			{
 				code: 'BLOOD_BANK',
+				icon: 'blood-drop',
 				name: 'Blood Bank',
 				summary: 'Donor registry, blood stock, cross-matching and issue.',
 				points: [
@@ -209,11 +231,13 @@ export const HIMS_MODULE_GROUPS: readonly HimsModuleGroup[] = [
 	},
 	{
 		id: 'records',
+		icon: 'records',
 		label: 'Records',
 		blurb: 'What the hospital has to be able to produce later.',
 		modules: [
 			{
 				code: 'DISCHARGE',
+				icon: 'discharge',
 				name: 'Discharge & Final Bill',
 				summary: 'Discharge summary, bill reconciliation, deposits adjustment and final bill.',
 				points: [
@@ -225,6 +249,7 @@ export const HIMS_MODULE_GROUPS: readonly HimsModuleGroup[] = [
 			},
 			{
 				code: 'MRD',
+				icon: 'records',
 				name: 'Medical Records (MRD)',
 				summary: 'Case file tracking, ICD coding, record requests and retention.',
 				points: [
@@ -238,11 +263,13 @@ export const HIMS_MODULE_GROUPS: readonly HimsModuleGroup[] = [
 	},
 	{
 		id: 'administration',
+		icon: 'admin',
 		label: 'Administration',
 		blurb: 'Staff, fleet, money and the machines on the network.',
 		modules: [
 			{
 				code: 'HR_PAYROLL',
+				icon: 'staff',
 				name: 'HR & Payroll',
 				summary: 'Staff master, duty roster, attendance and payroll.',
 				points: [
@@ -254,6 +281,7 @@ export const HIMS_MODULE_GROUPS: readonly HimsModuleGroup[] = [
 			},
 			{
 				code: 'AMBULANCE',
+				icon: 'ambulance',
 				name: 'Ambulance Management',
 				summary: 'Vehicle master, trip logs and ambulance charges.',
 				points: [
@@ -265,6 +293,7 @@ export const HIMS_MODULE_GROUPS: readonly HimsModuleGroup[] = [
 			},
 			{
 				code: 'ACCOUNTS',
+				icon: 'ledger',
 				name: 'Accounts & Finance',
 				summary: 'Day book, cash/bank reconciliation and ledger postings.',
 				points: [
@@ -276,6 +305,7 @@ export const HIMS_MODULE_GROUPS: readonly HimsModuleGroup[] = [
 			},
 			{
 				code: 'INTEGRATION',
+				icon: 'microscope',
 				name: 'Machines & Interfaces',
 				summary: 'ABDM/ABHA, HL7/FHIR, payment gateway and third-party integrations.',
 				points: [
@@ -289,11 +319,13 @@ export const HIMS_MODULE_GROUPS: readonly HimsModuleGroup[] = [
 	},
 	{
 		id: 'platform',
+		icon: 'parameter',
 		label: 'Platform',
 		blurb: 'The parts that make it your hospital rather than a generic one.',
 		modules: [
 			{
 				code: 'CONFIGURATION',
+				icon: 'parameter',
 				name: 'Configuration & Settings',
 				summary: 'Module switches, hospital settings, number series, tax rates and facilities.',
 				points: [
@@ -305,6 +337,7 @@ export const HIMS_MODULE_GROUPS: readonly HimsModuleGroup[] = [
 			},
 			{
 				code: 'FACILITY',
+				icon: 'branch',
 				name: 'Facility & Branch',
 				summary: 'Hospital branches/units, GSTIN, drug licence and registration details.',
 				points: [
@@ -316,6 +349,7 @@ export const HIMS_MODULE_GROUPS: readonly HimsModuleGroup[] = [
 			},
 			{
 				code: 'ABDM',
+				icon: 'insurance',
 				name: 'ABDM / ABHA Integration',
 				summary: 'Ayushman Bharat Digital Mission connectivity, configured per hospital.',
 				points: [
