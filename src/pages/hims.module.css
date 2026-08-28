@@ -274,8 +274,17 @@
 }
 
 .moduleCard:hover {
-  transform: translateY(-3px);
+  transform: translateY(-4px);
   border-color: var(--ifm-color-primary);
+  box-shadow: 0 18px 38px rgba(var(--cx-primary-rgb), 0.18);
+}
+
+.moduleCard:hover .moduleCardName {
+  color: var(--ifm-color-primary);
+}
+
+.moduleCardName {
+  transition: color 0.22s ease;
 }
 
 .moduleCardName {
@@ -683,12 +692,47 @@
 }
 
 .detailCard {
+  position: relative;
+  overflow: hidden;
   background: var(--cx-card-bg);
   border: 1px solid var(--cx-card-border);
   border-radius: 16px;
   padding: 1.6rem;
   display: flex;
   flex-direction: column;
+  transition: transform 0.22s ease, border-color 0.22s ease, box-shadow 0.22s ease;
+}
+
+/* A rule that draws itself across the top on hover, so the pointer picks out
+   one module rather than the whole grid shifting under it. */
+.detailCard::before {
+  content: '';
+  position: absolute;
+  inset: 0 0 auto 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--ifm-color-primary), var(--cx-accent));
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.28s ease;
+}
+
+.detailCard:hover {
+  transform: translateY(-4px);
+  border-color: var(--ifm-color-primary);
+  box-shadow: 0 18px 38px rgba(var(--cx-primary-rgb), 0.18);
+}
+
+.detailCard:hover::before {
+  transform: scaleX(1);
+}
+
+.detailCard:hover .detailName {
+  color: var(--ifm-color-primary);
+}
+
+.detailName,
+.detailList li::before {
+  transition: color 0.22s ease, border-color 0.22s ease;
 }
 
 .detailName {
@@ -773,5 +817,31 @@
   .heroCta {
     flex-direction: column;
     align-items: stretch;
+  }
+}
+
+/* The cards are not links, but a hover that only exists for a mouse leaves
+   keyboard and touch users with no feedback at all. */
+.detailCard:focus-within {
+  border-color: var(--ifm-color-primary);
+  box-shadow: 0 18px 38px rgba(var(--cx-primary-rgb), 0.18);
+}
+
+.detailCard:focus-within::before {
+  transform: scaleX(1);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .detailCard,
+  .detailCard::before,
+  .moduleCard,
+  .detailName,
+  .moduleCardName {
+    transition: none;
+  }
+
+  .detailCard:hover,
+  .moduleCard:hover {
+    transform: none;
   }
 }
