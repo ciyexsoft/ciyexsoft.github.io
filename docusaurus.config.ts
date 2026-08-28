@@ -226,15 +226,12 @@ const config: Config = {
           : []),
         { to: '/workspace', label: 'Workspace', position: 'left' },
         { to: '/professional-support', label: 'Support', position: 'left' },
-        {
-          type: 'dropdown',
-          label: 'Company',
-          position: 'left',
-          items: [
-            { label: 'About', to: '/about' },
-            { label: 'Impact', to: '/impact' },
-          ],
-        },
+        // About and Impact were a "Company" dropdown. Two items behind a menu
+        // costs a hover and a click to reach either, and hides them from anyone
+        // scanning the bar — a dropdown earns its place at four or five items,
+        // not two.
+        { to: '/about', label: 'About', position: 'left' },
+        { to: '/impact', label: 'Impact', position: 'left' },
         {
           type: 'localeDropdown',
           position: 'right',
@@ -258,16 +255,27 @@ const config: Config = {
           ],
         },
         {
-          title: 'Community',
+          title: 'Company',
           items: [
+            { label: 'About Us', to: '/about' },
+            { label: 'Our Impact', to: '/impact' },
+            // No Blog link: blog/ holds authors.yml and tags.yml and not one
+            // post, so Docusaurus generates no /blog page to link to. Worth
+            // adding back the day there is something to read there.
             { label: 'Support', to: '/professional-support' },
           ],
         },
         {
-          title: 'More',
+          // "Community" for a commercial product with one link under it was
+          // neither accurate nor useful. The column people actually look for
+          // here is how to reach somebody.
+          title: 'Contact',
           items: [
-            { label: 'About Us', to: '/about' },
-            { label: 'Our Impact', to: '/impact' },
+            { label: 'info@qiaben.com', href: 'mailto:info@qiaben.com' },
+            { label: 'Book a Demo', to: '/signup' },
+            ...(IS_INDIA
+              ? [{ label: 'Coimbatore, Tamil Nadu', to: '/about' }]
+              : [{ label: 'Sheridan, Wyoming', to: '/about' }]),
           ],
         },
         {

@@ -15,10 +15,6 @@
     "message": "Support",
     "description": "Navbar item with label Support"
   },
-  "item.label.Company": {
-    "message": "Company",
-    "description": "Navbar item with label Company"
-  },
   "item.label.Book a demo": {
     "message": "Book a demo",
     "description": "Navbar item with label Book a demo"

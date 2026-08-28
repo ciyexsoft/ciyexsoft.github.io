@@ -3,14 +3,6 @@
     "message": "Product",
     "description": "The title of the footer links column with title=Product in the footer"
   },
-  "link.title.Community": {
-    "message": "Community",
-    "description": "The title of the footer links column with title=Community in the footer"
-  },
-  "link.title.More": {
-    "message": "More",
-    "description": "The title of the footer links column with title=More in the footer"
-  },
   "link.title.Legal": {
     "message": "Legal",
     "description": "The title of the footer links column with title=Legal in the footer"
@@ -42,5 +34,25 @@
   "link.item.label.HIMS Modules": {
     "message": "HIMS Modules",
     "description": "The label of footer link with label=HIMS Modules linking to /modules"
+  },
+  "link.title.Company": {
+    "message": "Company",
+    "description": "The title of the footer links column with title=Company in the footer"
+  },
+  "link.title.Contact": {
+    "message": "Contact",
+    "description": "The title of the footer links column with title=Contact in the footer"
+  },
+  "link.item.label.Book a Demo": {
+    "message": "Book a Demo",
+    "description": "The label of footer link with label=Book a Demo linking to /signup"
+  },
+  "link.item.label.Coimbatore, Tamil Nadu": {
+    "message": "Coimbatore, Tamil Nadu",
+    "description": "The label of footer link with label=Coimbatore, Tamil Nadu linking to /about"
+  },
+  "link.item.label.info@qiaben.com": {
+    "message": "info@qiaben.com",
+    "description": "The label of footer link with label=info@qiaben.com linking to mailto:info@qiaben.com"
   }
 }

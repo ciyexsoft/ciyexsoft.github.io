@@ -45,6 +45,8 @@
   --cx-brand-to: #10b981;
   --cx-brand-to-rgb: 16, 185, 129;
   --cx-primary-rgb: 13, 148, 136;
+  --cx-btn-primary-dark: #0f766e;
+  --cx-announcement-link: #06b6d4;
 }
 
 [data-theme='dark'] {
@@ -230,7 +232,7 @@
 }
 
 .dropdown__link--active {
-  background: rgba(13, 148, 136, 0.15) !important;
+  background: rgba(var(--cx-primary-rgb), 0.15) !important;
   color: var(--ifm-color-primary-light) !important;
 }
 
@@ -319,7 +321,7 @@
 }
 
 .menu__link--active {
-  background: rgba(13, 148, 136, 0.08);
+  background: rgba(var(--cx-primary-rgb), 0.08);
 }
 
 /* ── Code Blocks ── */
@@ -337,7 +339,7 @@ div[class*="announcementBar"] {
 }
 
 div[class*="announcementBar"] a {
-  color: #06b6d4;
+  color: var(--cx-announcement-link);
   text-decoration: underline;
 }
 
@@ -405,7 +407,7 @@ h1, h2, h3, h4, h5, h6 {
   border-radius: 50% !important;
   object-fit: cover;
   border: 2px solid var(--cx-accent);
-  box-shadow: 0 0 0 2px rgba(6, 182, 212, 0.12);
+  box-shadow: 0 0 0 2px rgba(var(--cx-brand-from-rgb), 0.12);
 }
 
 [class*="blogPostPage"] .avatar__name,
@@ -486,6 +488,9 @@ html[lang='en-IN'] {
   --cx-brand-to: #0ea5e9;
   --cx-brand-to-rgb: 14, 165, 233;
   --cx-primary-rgb: 29, 78, 216;
+  --cx-btn-primary-dark: #1e40af;
+  /* White, not the accent: sky blue on a #1d4ed8 bar is unreadable. */
+  --cx-announcement-link: #ffffff;
 }
 
 html[lang='en-IN'][data-theme='dark'] {

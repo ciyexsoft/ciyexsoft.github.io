@@ -90,12 +90,12 @@
 }
 
 .btnPrimary:hover {
-  background: #0b7f74;
+  background: var(--ifm-color-primary-dark);
   transform: translateY(-1px);
 }
 
 [data-theme='dark'] .btnPrimary {
-  background: #0f766e;
+  background: var(--cx-btn-primary-dark);
 }
 
 [data-theme='dark'] .btnPrimary:hover {
