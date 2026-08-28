@@ -122,58 +122,6 @@
   margin-bottom: 0;
 }
 
-/* Directors Grid */
-.directorsGrid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 1px;
-  background: rgba(255, 255, 255, 0.04);
-  border-radius: 20px;
-  overflow: hidden;
-  border: 1px solid rgba(255, 255, 255, 0.04);
-  max-width: 900px;
-  margin: 0 auto;
-}
-
-.directorCard {
-  background: rgba(17, 24, 39, 0.8);
-  padding: 2.5rem 1.5rem;
-  text-align: center;
-  transition: background 0.3s ease;
-}
-
-.directorCard:hover {
-  background: rgba(30, 41, 59, 0.8);
-}
-
-.directorAvatar {
-  width: 56px;
-  height: 56px;
-  border-radius: 50%;
-  background: linear-gradient(135deg, var(--cx-brand-from), var(--cx-brand-to));
-  color: #ffffff;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 1rem;
-  font-weight: 700;
-  margin: 0 auto 1rem;
-}
-
-.directorName {
-  font-size: 0.9375rem;
-  font-weight: 600;
-  color: #f1f5f9;
-  margin-bottom: 0.25rem;
-}
-
-.directorRole {
-  font-size: 0.8125rem;
-  color: #94a3b8;
-  font-weight: 500;
-  margin: 0;
-}
-
 /* Info Grid */
 .infoGrid {
   display: grid;
@@ -271,10 +219,6 @@
     padding: 80px 24px 60px;
   }
 
-  .directorsGrid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-
   .infoGrid {
     grid-template-columns: 1fr;
   }
@@ -289,10 +233,6 @@
 }
 
 @media screen and (max-width: 480px) {
-  .directorsGrid {
-    grid-template-columns: 1fr;
-  }
-
   .heroCard {
     padding: 64px 16px 48px;
   }

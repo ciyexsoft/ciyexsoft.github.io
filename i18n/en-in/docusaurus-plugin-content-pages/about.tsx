@@ -3,13 +3,6 @@ import Layout from '@theme/Layout';
 import Heading from '@theme/Heading';
 import styles from '@site/src/pages/about.module.css';
 
-const directors = [
-  { name: 'Kanneeswari Sivakumar', role: 'Director' },
-  { name: 'Ciyahini Sivakumar', role: 'Director' },
-  { name: 'Sivakumar Dhanapal', role: 'Director' },
-  { name: 'Santhosh Sivakumar', role: 'Director' },
-];
-
 export default function About(): ReactNode {
   return (
     <Layout
@@ -59,26 +52,6 @@ export default function About(): ReactNode {
                   genuinely interoperable, and let providers concentrate on what matters
                   most — patient care.
                 </p>
-              </div>
-            </div>
-          </section>
-
-          {/* Board of Directors Section */}
-          <section className={styles.section}>
-            <div className={styles.sectionInner}>
-              <Heading as="h2" className={styles.sectionTitle}>
-                Board of Directors
-              </Heading>
-              <div className={styles.directorsGrid}>
-                {directors.map((director) => (
-                  <div key={director.name} className={styles.directorCard}>
-                    <div className={styles.directorAvatar}>
-                      {director.name.split(' ').map((n) => n[0]).join('')}
-                    </div>
-                    <h3 className={styles.directorName}>{director.name}</h3>
-                    <p className={styles.directorRole}>{director.role}</p>
-                  </div>
-                ))}
               </div>
             </div>
           </section>
