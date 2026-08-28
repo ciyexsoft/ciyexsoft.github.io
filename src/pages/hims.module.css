@@ -49,7 +49,7 @@
   overflow: hidden;
   padding: 5.5rem 0 4rem;
   background:
-    radial-gradient(1100px 520px at 50% -12%, rgba(13, 148, 136, 0.16), transparent 62%),
+    radial-gradient(1100px 520px at 50% -12%, var(--hims-glow), transparent 62%),
     var(--ifm-background-color);
   border-bottom: 1px solid var(--cx-card-border);
 }
@@ -84,7 +84,7 @@
 }
 
 .heroGradient {
-  background: linear-gradient(100deg, var(--ifm-color-primary) 0%, var(--cx-accent) 55%, var(--cx-emerald) 100%);
+  background: linear-gradient(100deg, var(--ifm-color-primary) 0%, var(--cx-accent) 55%, var(--hims-gradient-end) 100%);
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -122,7 +122,7 @@
 .btnPrimary {
   background: var(--ifm-color-primary);
   color: #fff;
-  box-shadow: 0 10px 26px rgba(13, 148, 136, 0.3);
+  box-shadow: 0 10px 26px var(--hims-glow-strong);
 }
 
 .btnPrimary:hover {
@@ -590,7 +590,7 @@
   padding: 5rem 0 6rem;
   text-align: center;
   background:
-    radial-gradient(900px 420px at 50% 120%, rgba(13, 148, 136, 0.16), transparent 62%),
+    radial-gradient(900px 420px at 50% 120%, var(--hims-glow), transparent 62%),
     var(--ifm-background-color);
   border-top: 1px solid var(--cx-card-border);
 }
@@ -615,7 +615,7 @@
   padding: 4.5rem 0 3rem;
   border-bottom: 1px solid var(--cx-card-border);
   background:
-    radial-gradient(900px 420px at 50% -20%, rgba(13, 148, 136, 0.13), transparent 62%),
+    radial-gradient(900px 420px at 50% -20%, var(--hims-glow), transparent 62%),
     var(--ifm-background-color);
 }
 

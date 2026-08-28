@@ -199,7 +199,9 @@ const config: Config = {
     announcementBar: {
       id: 'commercial_announcement',
       content: 'Ciyex is now available for clinics and hospitals worldwide. <a href="/signup">Talk to our team</a>',
-      backgroundColor: '#6b5ce7',
+      // India runs the medical-blue palette; a violet bar above a blue page
+      // reads as two brands stacked.
+      backgroundColor: IS_INDIA ? '#1d4ed8' : '#6b5ce7',
       textColor: '#ffffff',
       isCloseable: true,
     },

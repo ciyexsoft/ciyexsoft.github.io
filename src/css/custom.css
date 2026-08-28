@@ -442,3 +442,48 @@ h1, h2, h3, h4, h5, h6 {
     border-radius: 10px;
   }
 }
+
+/* ──────────────────────────────────────────────────────────────────────────
+ * India (en-IN): medical blue.
+ *
+ * Indian hospitals shop a HIMS against vendors who all read blue, and blue is
+ * what the market reads as clinical. The US EHR site keeps the teal brand, so
+ * the override hangs off the locale's html lang rather than the brand tokens —
+ * that reaches the navbar, the demo button and the footer, which sit outside
+ * any page component and so cannot be reached from a CSS module.
+ *
+ * Success stays green (--cx-emerald): a connection test that passed should not
+ * be the same colour as a button.
+ * ────────────────────────────────────────────────────────────────────────── */
+html[lang='en-IN'] {
+  --ifm-color-primary: #1d4ed8;
+  --ifm-color-primary-dark: #1e46c0;
+  --ifm-color-primary-darker: #1e40af;
+  --ifm-color-primary-darkest: #1e3a8a;
+  --ifm-color-primary-light: #2563eb;
+  --ifm-color-primary-lighter: #3b82f6;
+  --ifm-color-primary-lightest: #60a5fa;
+  --cx-accent: #0ea5e9;
+  --docusaurus-highlighted-code-line-bg: rgba(29, 78, 216, 0.1);
+
+  /* Consumed by hims.module.css. */
+  --hims-glow: rgba(29, 78, 216, 0.17);
+  --hims-glow-strong: rgba(29, 78, 216, 0.32);
+  --hims-gradient-end: #0f766e;
+}
+
+html[lang='en-IN'][data-theme='dark'] {
+  --ifm-color-primary: #60a5fa;
+  --ifm-color-primary-dark: #3b82f6;
+  --ifm-color-primary-darker: #2563eb;
+  --ifm-color-primary-darkest: #1d4ed8;
+  --ifm-color-primary-light: #93c5fd;
+  --ifm-color-primary-lighter: #bfdbfe;
+  --ifm-color-primary-lightest: #dbeafe;
+  --cx-accent: #38bdf8;
+  --docusaurus-highlighted-code-line-bg: rgba(96, 165, 250, 0.15);
+
+  --hims-glow: rgba(59, 130, 246, 0.2);
+  --hims-glow-strong: rgba(37, 99, 235, 0.4);
+  --hims-gradient-end: #2dd4bf;
+}
