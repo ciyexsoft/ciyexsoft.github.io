@@ -1,249 +1,464 @@
 import type { ReactNode } from 'react';
-import clsx from 'clsx';
 import Link from '@docusaurus/Link';
-import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 import Layout from '@theme/Layout';
 import Heading from '@theme/Heading';
 
-import styles from '@site/src/pages/index.module.css';
+import { HIMS_MODULE_GROUPS, HIMS_MODULES } from '@site/src/data/himsModules';
+import styles from '@site/src/pages/hims.module.css';
 
-/* ── Inline SVG Icons ── */
-const IconShield = () => (
-  <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-    <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
-    <path d="m9 12 2 2 4-4" />
-  </svg>
-);
-
-const IconHeart = () => (
-  <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-    <path d="M19.5 12.572l-7.5 7.428-7.5-7.428A5 5 0 1 1 12 6.006a5 5 0 1 1 7.5 6.572" />
-    <path d="M12 6v4M10 8h4" />
-  </svg>
-);
-
-const IconGlobe = () => (
-  <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-    <circle cx="12" cy="12" r="10" />
-    <path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z" />
-  </svg>
-);
-
-const IconCode = () => (
-  <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-    <polyline points="16 18 22 12 16 6" />
-    <polyline points="8 6 2 12 8 18" />
-    <line x1="14" y1="4" x2="10" y2="20" />
-  </svg>
-);
-
-const IconUsers = () => (
-  <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-    <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2" />
-    <circle cx="9" cy="7" r="4" />
-    <path d="M22 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75" />
-  </svg>
-);
-
-const IconZap = () => (
-  <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-    <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2" />
-  </svg>
-);
-
-/* ── Workspace Screenshot ── */
-function WorkspaceMockup() {
-  return (
-    <div className={styles.mockupWrapper}>
-      <div className={styles.mockupWindow}>
-        <div className={styles.mockupBar}>
-          <span className={styles.dot} style={{ background: '#ff5f57' }} />
-          <span className={styles.dot} style={{ background: '#febc2e' }} />
-          <span className={styles.dot} style={{ background: '#28c840' }} />
-          <span className={styles.mockupTitle}>Ciyex Workspace — Schedule</span>
-        </div>
-        <div className={styles.screenshotBody}>
-          <img
-            src="/img/workspace-schedule.png"
-            alt="Ciyex Workspace desktop client showing the HIMS schedule view"
-            className={styles.screenshotImg}
-          />
-        </div>
-      </div>
-    </div>
-  );
-}
+/**
+ * The India home page: Ciyex HIMS.
+ *
+ * <p>India buys a hospital information management system, not an EHR, and the
+ * page is organised the way a hospital is — the patient journey first, the
+ * module catalogue second. Both come from the same source as the product
+ * (`src/data/himsModules.ts`), so the site cannot drift from what a hospital
+ * can actually switch on.
+ */
 
 /* ── Hero ── */
-function HomepageHero() {
-  const { siteConfig } = useDocusaurusContext();
-  return (
-    <section className={styles.hero}>
-      <div className={styles.heroInner}>
-        <div className={styles.heroBadge}>
-          Clinical Software &middot; Built for Healthcare
-        </div>
-        <Heading as="h1" className={styles.heroTitle}>
-          Ciyex Workspace.<br />
-          <span className={styles.heroGradient}>One app for your whole clinic.</span>
-        </Heading>
-        <p className={styles.heroSubtitle}>
-          A modern desktop workspace, the Ciyex HIMS, and secure cloud hosting — all in one
-          platform. Built so clinics of any size run on the same tools as the biggest hospitals.
-        </p>
-        <div className={styles.heroCta}>
-          <Link className={styles.btnPrimary} to="/workspace">
-            Explore Ciyex Workspace
-          </Link>
-        </div>
-      </div>
-      <WorkspaceMockup />
-    </section>
-  );
+
+function Hero() {
+	return (
+		<section className={styles.hero}>
+			<div className={styles.heroInner}>
+				<div className={styles.heroBadge}>
+					Hospital Information Management System &middot; India
+				</div>
+				<Heading as="h1" className={styles.heroTitle}>
+					Run the whole hospital<br />
+					<span className={styles.heroGradient}>on one system.</span>
+				</Heading>
+				<p className={styles.heroSubtitle}>
+					Ciyex HIMS covers the hospital end to end — registration and the queue at the
+					front desk, OPD, casualty, wards and theatre, lab, radiology, pharmacy and
+					blood bank, through to the final bill, the day book and the discharge summary.
+					One system, one patient file, one set of numbers at day end.
+				</p>
+				<div className={styles.heroCta}>
+					<Link className={styles.btnPrimary} to="/signup">
+						Schedule a free demo
+					</Link>
+					<Link className={styles.btnGhost} to="/modules">
+						See all modules
+					</Link>
+				</div>
+				<div className={styles.statStrip}>
+					<div className={styles.stat}>
+						<span className={styles.statValue}>{HIMS_MODULES.length} modules</span>
+						<span className={styles.statLabel}>Switch on only what you run</span>
+					</div>
+					<div className={styles.stat}>
+						<span className={styles.statValue}>ABDM-ready</span>
+						<span className={styles.statLabel}>Connects to the ABDM gateway</span>
+					</div>
+					<div className={styles.stat}>
+						<span className={styles.statValue}>&#8377; &amp; GST</span>
+						<span className={styles.statLabel}>Indian billing, formats and April FY</span>
+					</div>
+					<div className={styles.stat}>
+						<span className={styles.statValue}>Unlimited users</span>
+						<span className={styles.statLabel}>No per-user licence cost</span>
+					</div>
+				</div>
+			</div>
+		</section>
+	);
 }
 
-/* ── Features ── */
-const features = [
-  { icon: <IconHeart />, title: 'Patient-First Design', desc: 'Patients own their health data. Secure portal access to records, appointments, messaging, and prescriptions. Software that puts people in control.' },
-  { icon: <IconUsers />, title: 'Community Health Centers', desc: 'Purpose-built HIMS software for community health centers, free clinics, and rural providers who serve the most underserved populations.' },
-  { icon: <IconGlobe />, title: 'Health Equity', desc: 'Multi-language, culturally responsive, and designed to remove technology barriers for immigrant, uninsured, and underserved communities.' },
-  { icon: <IconShield />, title: 'Privacy & Trust', desc: 'HIPAA-compliant with enterprise-grade encryption. Every patient deserves the same level of data protection, regardless of which software their clinic uses.' },
-  { icon: <IconCode />, title: 'Deploy Your Way', desc: 'Fully managed cloud or self-hosted on your own infrastructure. Clear licensing, no per-patient fees, and no vendor lock-in.' },
-  { icon: <IconZap />, title: 'Interoperable', desc: 'FHIR R4 native. Connects with labs, pharmacies, and other systems so patients never have to repeat their story at every visit.' },
+/* ── The patient journey ── */
+
+const JOURNEY: readonly { title: string; entries: readonly string[] }[] = [
+	{
+		title: 'Front Desk',
+		entries: ['Registration & UHID', 'Appointments & queue', 'Display board', 'Billing & cashier'],
+	},
+	{
+		title: 'Patient Care',
+		entries: ['OPD', 'Emergency', 'Admission & wards', 'Nursing station', 'Operation theatre'],
+	},
+	{
+		title: 'Departments',
+		entries: ['Laboratory', 'Radiology & PACS', 'Pharmacy', 'Stores', 'Blood bank'],
+	},
+	{
+		title: 'Records',
+		entries: ['Discharge checklist', 'Discharge summary', 'Final bill', 'Medical records'],
+	},
+	{
+		title: 'Administration',
+		entries: ['HR & payroll', 'Ambulance', 'Accounts & day book', 'Machines & interfaces'],
+	},
 ];
 
-function FeaturesSection() {
-  return (
-    <section className={styles.features}>
-      <div className={styles.featuresInner}>
-        <div className={styles.sectionLabel}>Why Ciyex</div>
-        <Heading as="h2" className={styles.sectionTitle}>
-          Technology built around your patients.
-        </Heading>
-        <p className={styles.sectionSubtitle}>
-          Every feature is designed with one question: does this give clinics and patients better tools than what they have today?
-        </p>
-        <div className={styles.featureGrid}>
-          {features.map((f, i) => (
-            <div key={i} className={styles.featureCard}>
-              <div className={styles.featureIcon}>{f.icon}</div>
-              <h3 className={styles.featureTitle}>{f.title}</h3>
-              <p className={styles.featureDesc}>{f.desc}</p>
-            </div>
-          ))}
-        </div>
-      </div>
-    </section>
-  );
+function JourneySection() {
+	return (
+		<section className={styles.journey}>
+			<div className={styles.container}>
+				<div className={styles.journeyHead}>
+					<div className={styles.sectionLabel}>How Ciyex HIMS works</div>
+					<Heading as="h2" className={styles.sectionTitle}>
+						Built in the order a patient moves.
+					</Heading>
+					<p className={styles.sectionSubtitle}>
+						A receptionist and a lab technician do not think in modules. So the software
+						is laid out by where the work happens — and the sidebar your staff open every
+						morning is the same list you see here.
+					</p>
+				</div>
+				<div className={styles.journeyRow}>
+					{JOURNEY.map((step, i) => (
+						<div key={step.title} className={styles.journeyStep}>
+							<div className={styles.journeyIndex}>STEP {i + 1}</div>
+							<h3 className={styles.journeyTitle}>{step.title}</h3>
+							<ul className={styles.journeyList}>
+								{step.entries.map((entry) => (
+									<li key={entry}>{entry}</li>
+								))}
+							</ul>
+						</div>
+					))}
+				</div>
+			</div>
+		</section>
+	);
 }
 
-/* ── Product Showcase (Apple-style alternating sections) ── */
-function ShowcaseSection() {
-  return (
-    <>
-      {/* Section 1: Patient Care */}
-      <section className={styles.showcase}>
-        <div className={styles.showcaseInner}>
-          <div className={styles.showcaseText}>
-            <div className={styles.sectionLabel}>Better Tools</div>
-            <Heading as="h2" className={styles.showcaseTitle}>
-              Every clinic<br />deserves this.
-            </Heading>
-            <p className={styles.showcaseDesc}>
-              Complete health records software, smart clinical documentation tools,
-              and care coordination workflows. The same quality of technology
-              whether you run a rural clinic or a major hospital.
-            </p>
-          </div>
-          <div className={styles.showcaseVisual}>
-            <div className={styles.visualCard}>
-              <div className={styles.visualCardHeader}>
-                <div className={styles.visualCardDot} />
-                <span>Patient Chart</span>
-              </div>
-              <div className={styles.visualCardRow}><span className={styles.vcLabel}>Name</span><span className={styles.vcValue}>Sarah Johnson</span></div>
-              <div className={styles.visualCardRow}><span className={styles.vcLabel}>DOB</span><span className={styles.vcValue}>04/15/1985</span></div>
-              <div className={styles.visualCardRow}><span className={styles.vcLabel}>MRN</span><span className={styles.vcValue}>CX-2024-0847</span></div>
-              <div className={styles.visualCardDivider} />
-              <div className={styles.visualVitals}>
-                <div className={styles.vitalPill}><strong>120/80</strong><span>BP</span></div>
-                <div className={styles.vitalPill}><strong>72</strong><span>HR</span></div>
-                <div className={styles.vitalPill}><strong>98.6</strong><span>Temp</span></div>
-                <div className={styles.vitalPill}><strong>99%</strong><span>SpO2</span></div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
+/* ── Module catalogue preview ── */
 
-      {/* Section 2: Interoperability */}
-      <section className={clsx(styles.showcase, styles.showcaseReverse, styles.showcaseDark)}>
-        <div className={styles.showcaseInner}>
-          <div className={styles.showcaseText}>
-            <div className={styles.sectionLabel}>Connected Care</div>
-            <Heading as="h2" className={styles.showcaseTitle}>
-              Your health data<br />should follow you.
-            </Heading>
-            <p className={styles.showcaseDesc}>
-              Built on FHIR R4 open standards so patient records move seamlessly
-              between providers, labs, pharmacies, and specialists. No more
-              lost records or repeated tests.
-            </p>
-          </div>
-          <div className={styles.showcaseVisual}>
-            <div className={styles.interopVisual}>
-              <div className={styles.interopCenter}>
-                <img src="/img/Ciyex-logo-no-text.png" alt="Ciyex" width="40" height="40" />
-              </div>
-              {['Labs', 'Pharmacy', 'Insurance', 'HIE', 'Imaging', 'Billing'].map((label, i) => (
-                <div key={i} className={styles.interopNode}>
-                  <span>{label}</span>
-                </div>
-              ))}
-              {[0,1,2,3,4,5].map(i => (
-                <div key={i} className={styles.interopLine} />
-              ))}
-            </div>
-          </div>
-        </div>
-      </section>
-    </>
-  );
+/** The modules a hospital asks about first, in the order they come up in a demo. */
+const HIGHLIGHT_CODES: readonly string[] = [
+	'REGISTRATION', 'APPOINTMENT', 'OPD', 'IPD',
+	'BED_MANAGEMENT', 'NURSING', 'OT', 'EMERGENCY',
+	'LABORATORY', 'RADIOLOGY', 'PHARMACY', 'BLOOD_BANK',
+	'BILLING', 'DISCHARGE', 'ACCOUNTS', 'HR_PAYROLL',
+];
+
+function ModulesPreview() {
+	const byCode = new Map(HIMS_MODULES.map((m) => [m.code, m]));
+	const highlights = HIGHLIGHT_CODES.map((code) => byCode.get(code)).filter(Boolean);
+
+	return (
+		<section className={styles.modulesPreview}>
+			<div className={styles.container}>
+				<div className={styles.journeyHead}>
+					<div className={styles.sectionLabel}>Modules</div>
+					<Heading as="h2" className={styles.sectionTitle}>
+						Everything a hospital runs on.
+					</Heading>
+					<p className={styles.sectionSubtitle}>
+						Every module below ships today. A hospital switches on the ones it runs and
+						never sees the rest — a clinic with no theatre never gets an OT menu.
+					</p>
+				</div>
+				<div className={styles.moduleGrid}>
+					{highlights.map((module) => (
+						<div key={module!.code} className={styles.moduleCard}>
+							<h3 className={styles.moduleCardName}>{module!.name}</h3>
+							<p className={styles.moduleCardSummary}>{module!.summary}</p>
+						</div>
+					))}
+				</div>
+				<div className={styles.centerCta}>
+					<Link className={styles.btnGhost} to="/modules">
+						See all {HIMS_MODULES.length} modules
+					</Link>
+				</div>
+			</div>
+		</section>
+	);
 }
 
-/* ── Recent Blogs Section ── */
-/* ── CTA Section ── */
+/* ── ABDM ── */
+
+function AbdmSection() {
+	return (
+		<section className={styles.abdm}>
+			<div className={styles.abdmInner}>
+				<div>
+					<div className={styles.sectionLabel}>Ayushman Bharat Digital Mission</div>
+					<Heading as="h2" className={styles.sectionTitle}>
+						ABDM, configured<br />by your own team.
+					</Heading>
+					<p className={styles.abdmDesc}>
+						ABDM connectivity is part of the product, not a custom project. Your
+						administrator enters the hospital&rsquo;s credentials in Ciyex, picks sandbox or
+						production, and presses Test Connection — the app authenticates against the
+						live ABDM gateway and tells you straight away whether the hospital is
+						talking to it.
+					</p>
+					<ul className={styles.abdmList}>
+						<li>Sandbox and production environments, switched per hospital</li>
+						<li>HIP ID, facility name and callback URL configured in the app</li>
+						<li>Client credentials encrypted at rest and never shown back</li>
+						<li>Session tokens and the ABHA public key handled for you</li>
+						<li>Health Facility Registry bridge registration tracked per facility</li>
+					</ul>
+					<p className={styles.abdmNote}>
+						Available today: gateway configuration, credential management and verified
+						connectivity. ABHA enrolment, verification and Scan &amp; Share build on this
+						foundation and are rolling out module by module — we will show you exactly
+						where each one stands on the demo.
+					</p>
+					<Link className={styles.btnPrimary} to="/signup">
+						Talk to us about ABDM
+					</Link>
+				</div>
+				<div className={styles.abdmPanel}>
+					<div className={styles.abdmPanelHead}>
+						<span>ABDM Integration</span>
+						<span className={styles.abdmPill}>Active</span>
+					</div>
+					<div className={styles.abdmRow}>
+						<span className={styles.abdmKey}>Environment</span>
+						<span className={styles.abdmValue}>Production</span>
+					</div>
+					<div className={styles.abdmRow}>
+						<span className={styles.abdmKey}>HIP ID</span>
+						<span className={styles.abdmValue}>IN0210000123</span>
+					</div>
+					<div className={styles.abdmRow}>
+						<span className={styles.abdmKey}>Facility</span>
+						<span className={styles.abdmValue}>Coimbatore Unit</span>
+					</div>
+					<div className={styles.abdmRow}>
+						<span className={styles.abdmKey}>Client secret</span>
+						<span className={styles.abdmValue}>&bull;&bull;&bull;&bull;&bull;&bull;&bull;&bull;</span>
+					</div>
+					<div className={styles.abdmRow}>
+						<span className={styles.abdmKey}>Bridge registered</span>
+						<span className={styles.abdmValue}>Yes</span>
+					</div>
+					<div className={styles.abdmStatus}>
+						<span className={styles.abdmDot} />
+						Test Connection succeeded &mdash; gateway responded in 412&nbsp;ms
+					</div>
+				</div>
+			</div>
+		</section>
+	);
+}
+
+/* ── Capabilities ── */
+
+const CAPABILITIES: readonly { title: string; desc: string }[] = [
+	{
+		title: 'Modules you switch on and off',
+		desc: 'Turn a module on in Hospital Setup and it appears in the sidebar without a restart. Turn it off and the hospital stops seeing it.',
+	},
+	{
+		title: 'More than one unit',
+		desc: 'Branches and units under one login, each with its own GSTIN, drug licence, tariffs and number series. Report on one or on all of them.',
+	},
+	{
+		title: 'Unlimited users',
+		desc: 'Add every receptionist, nurse and technician you need. Access is controlled by role and permission, not by how many licences you bought.',
+	},
+	{
+		title: 'Indian formats throughout',
+		desc: '₹ currency with Indian grouping (12,34,567.00), dd/MM/yyyy dates, Asia/Kolkata time and a financial year that starts in April.',
+	},
+	{
+		title: 'GST on the bill',
+		desc: 'Tax rates on your service master, GST applied at billing, and receipts, advances and refunds that reconcile at day end.',
+	},
+	{
+		title: 'Your own number series',
+		desc: 'UHID, IP number, bill and receipt numbering follow the pattern your hospital already uses, including financial-year tokens.',
+	},
+	{
+		title: 'Machines on the network',
+		desc: 'Lab analysers over HL7 and modalities over DICOM, with a worklist pushed to the machine and results that come back on their own.',
+	},
+	{
+		title: 'FHIR R4 native',
+		desc: 'The clinical record is FHIR R4 underneath, so anything you or a partner builds later talks to a documented standard rather than a private table.',
+	},
+	{
+		title: 'Desktop workspace',
+		desc: 'Ciyex Workspace is a real desktop application for Windows, macOS and Linux — fast on the hardware a hospital already owns.',
+	},
+	{
+		title: 'Print what you have to produce',
+		desc: 'Bills, receipts, discharge summaries, lab and radiology reports and registers, printed or saved as PDF.',
+	},
+	{
+		title: 'SMS and email built in',
+		desc: 'Appointment reminders, report-ready notices and intake forms sent from the hospital’s own sender, per branch.',
+	},
+	{
+		title: 'Cloud or your own server',
+		desc: 'Hosted by us, or deployed on hardware inside the hospital. Same software either way, and your data stays yours.',
+	},
+];
+
+function CapabilitiesSection() {
+	return (
+		<section className={styles.capabilities}>
+			<div className={styles.container}>
+				<div className={styles.capHead}>
+					<div className={styles.sectionLabel}>Why Ciyex</div>
+					<Heading as="h2" className={styles.sectionTitle}>
+						The things that decide it.
+					</Heading>
+					<p className={styles.sectionSubtitle}>
+						Not a feature list for its own sake — these are the questions a hospital
+						actually asks before it changes systems.
+					</p>
+				</div>
+				<div className={styles.capGrid}>
+					{CAPABILITIES.map((cap) => (
+						<div key={cap.title} className={styles.capItem}>
+							<h3 className={styles.capTitle}>{cap.title}</h3>
+							<p className={styles.capDesc}>{cap.desc}</p>
+						</div>
+					))}
+				</div>
+			</div>
+		</section>
+	);
+}
+
+/* ── Workspace ── */
+
+function WorkspaceSection() {
+	return (
+		<section className={styles.workspace}>
+			<div className={styles.workspaceInner}>
+				<div>
+					<div className={styles.sectionLabel}>Ciyex Workspace</div>
+					<Heading as="h2" className={styles.sectionTitle}>
+						One window for<br />the whole shift.
+					</Heading>
+					<p className={styles.workspaceDesc}>
+						Your staff do not work in a browser tab that reloads between patients. Ciyex
+						Workspace is a desktop application — the queue, the chart, the ward and the
+						bill open side by side, and the sidebar shows only the modules your hospital
+						has switched on.
+					</p>
+					<Link className={styles.btnGhost} to="/workspace">
+						Explore Ciyex Workspace
+					</Link>
+				</div>
+				<div className={styles.mockupWindow}>
+					<div className={styles.mockupBar}>
+						<span className={styles.dot} style={{ background: '#ff5f57' }} />
+						<span className={styles.dot} style={{ background: '#febc2e' }} />
+						<span className={styles.dot} style={{ background: '#28c840' }} />
+						<span className={styles.mockupTitle}>Ciyex Workspace &mdash; Schedule</span>
+					</div>
+					<img
+						src="/img/workspace-schedule.png"
+						alt="Ciyex Workspace desktop client showing the HIMS schedule view"
+						className={styles.screenshotImg}
+					/>
+				</div>
+			</div>
+		</section>
+	);
+}
+
+/* ── FAQ ── */
+
+const FAQ: readonly { q: string; a: string }[] = [
+	{
+		q: 'Can Ciyex HIMS run more than one hospital or branch?',
+		a: 'Yes. Branches and units sit under one login, each with its own GSTIN, drug licence, registration details, tariffs and number series. Masters can be shared or kept per facility, and reports run for one unit or across all of them.',
+	},
+	{
+		q: 'Do we have to take every module?',
+		a: 'No. Every module is a switch. A polyclinic can run registration, appointments, OPD, pharmacy and billing and nothing else; a 300-bed hospital switches on wards, theatre, blood bank and payroll as it needs them. Staff only ever see the modules that are on.',
+	},
+	{
+		q: 'Is it billed per user?',
+		a: 'No. Add as many users as the hospital needs. Access is governed by roles and permissions rather than by licence count, so a night receptionist does not cost extra.',
+	},
+	{
+		q: 'Is Ciyex HIMS ABDM compliant?',
+		a: 'Ciyex ships ABDM connectivity as a configurable module: your administrator sets the hospital’s credentials, chooses sandbox or production, and verifies the connection against the live ABDM gateway from inside the app. ABHA enrolment, verification and Scan & Share are being released module by module on top of that foundation — ask us on the demo and we will show you exactly what is live.',
+	},
+	{
+		q: 'Can we host it ourselves?',
+		a: 'Yes. Ciyex runs as a managed cloud deployment or on hardware inside the hospital. It is the same software in both cases, and there is no per-patient fee and no lock-in on your data.',
+	},
+	{
+		q: 'Will it talk to our lab analysers and imaging machines?',
+		a: 'Lab analysers connect over HL7 and imaging modalities over DICOM, with a worklist pushed to the machine and results and images returning against the right order. There is a message log so an interface can be debugged rather than guessed at.',
+	},
+	{
+		q: 'What about our existing patient data?',
+		a: 'Patient master, visit history and outstanding balances can be migrated as part of the implementation. We will scope it with you against your current export before anything is committed.',
+	},
+	{
+		q: 'How long does implementation take?',
+		a: 'It depends on how many modules you switch on and how much history is migrated. A single-unit clinic on the core modules goes live far faster than a multi-speciality hospital with theatre, blood bank and payroll. We give you a dated plan after the demo rather than a number on a web page.',
+	},
+];
+
+function FaqSection() {
+	return (
+		<section className={styles.faq}>
+			<div className={styles.container}>
+				<div className={styles.faqHead}>
+					<div className={styles.sectionLabel}>FAQ</div>
+					<Heading as="h2" className={styles.sectionTitle}>
+						Questions hospitals ask us.
+					</Heading>
+				</div>
+				<div className={styles.faqList}>
+					{FAQ.map((item) => (
+						<details key={item.q} className={styles.faqItem}>
+							<summary>{item.q}</summary>
+							<p className={styles.faqAnswer}>{item.a}</p>
+						</details>
+					))}
+				</div>
+			</div>
+		</section>
+	);
+}
+
+/* ── Closing CTA ── */
+
 function CtaSection() {
-  return (
-    <section className={styles.cta}>
-      <div className={styles.ctaInner}>
-        <Heading as="h2" className={styles.ctaTitle}>
-          Get the whole stack.<br />One platform.
-        </Heading>
-        <p className={styles.ctaDesc}>
-          Ciyex Workspace runs on Windows, macOS, and Linux. Start with our managed cloud
-          and your clinic is up and running in minutes — no servers to manage.
-        </p>
-        <div className={styles.ctaButtons}>
-          <Link className={styles.btnPrimary} to="/signup">
-            Get started &rarr;
-          </Link>
-        </div>
-      </div>
-    </section>
-  );
+	return (
+		<section className={styles.cta}>
+			<div className={styles.container}>
+				<Heading as="h2" className={styles.ctaTitle}>
+					See it on your own hospital.
+				</Heading>
+				<p className={styles.ctaDesc}>
+					Book a demo and we will walk your team through registration to final bill using
+					your wards, your tariffs and your number series — not a canned dataset.
+				</p>
+				<div className={styles.heroCta}>
+					<Link className={styles.btnPrimary} to="/signup">
+						Schedule a free demo
+					</Link>
+					<Link className={styles.btnGhost} to="/modules">
+						Browse the modules
+					</Link>
+				</div>
+			</div>
+		</section>
+	);
 }
 
-/* ── Page ── */
 export default function Home(): ReactNode {
-  return (
-    <Layout
-      title="Ciyex Workspace — Clinical HIMS Software for Every Practice"
-      description="Ciyex Workspace bundles a modern desktop client, the Ciyex HIMS, and secure cloud hosting into one platform for clinics and hospitals.">
-      <HomepageHero />
-      <FeaturesSection />
-      <ShowcaseSection />
-      <CtaSection />
-    </Layout>
-  );
+	return (
+		<Layout
+			title="Hospital Management Software in India"
+			description="Ciyex HIMS is a complete hospital information management system for Indian hospitals and clinics — registration and UHID, OPD, IPD, wards, theatre, laboratory, radiology, pharmacy, blood bank, GST billing, discharge and payroll, with ABDM connectivity built in.">
+			<main className={styles.page}>
+				<Hero />
+				<JourneySection />
+				<ModulesPreview />
+				<AbdmSection />
+				<CapabilitiesSection />
+				<WorkspaceSection />
+				<FaqSection />
+				<CtaSection />
+			</main>
+		</Layout>
+	);
 }

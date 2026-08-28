@@ -168,6 +168,24 @@ const config: Config = {
     ],
   ],
 
+  plugins: [
+    // India-only pages.
+    //
+    // The pages plugin globs its file list from `path` alone and only consults
+    // the i18n folder to *override* a file that already exists there, so a page
+    // that exists solely for one market cannot live in i18n/. It gets its own
+    // plugin instance instead, registered only on the India build, which keeps
+    // /modules off the US site entirely rather than merely unlinked.
+    ...(IS_INDIA
+      ? [
+          [
+            '@docusaurus/plugin-content-pages',
+            { id: 'india', path: 'src/pages-in' },
+          ] as [string, Record<string, unknown>],
+        ]
+      : []),
+  ],
+
   clientModules: [
     './src/clientModules/ga4Events.ts',
   ],
@@ -193,6 +211,13 @@ const config: Config = {
         srcDark: 'img/Ciyex-logo-no-text.png',
       },
       items: [
+        // India buys a hospital system module by module, so the catalogue is a
+        // top-level destination there. The US site has no equivalent page, and
+        // this file is evaluated once per locale, so the item only exists where
+        // the page does.
+        ...(IS_INDIA
+          ? [{ to: '/modules', label: 'Modules', position: 'left' as const }]
+          : []),
         { to: '/workspace', label: 'Workspace', position: 'left' },
         { to: '/professional-support', label: 'Support', position: 'left' },
         {
@@ -222,6 +247,7 @@ const config: Config = {
         {
           title: 'Product',
           items: [
+            ...(IS_INDIA ? [{ label: 'HIMS Modules', to: '/modules' }] : []),
             { label: 'Ciyex Workspace', to: '/workspace' },
           ],
         },

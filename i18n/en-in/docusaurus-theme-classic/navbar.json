@@ -30,5 +30,9 @@
   "item.label.Impact": {
     "message": "Impact",
     "description": "Navbar item with label Impact"
+  },
+  "item.label.Modules": {
+    "message": "Modules",
+    "description": "Navbar item with label Modules"
   }
 }
