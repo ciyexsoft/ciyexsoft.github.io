@@ -36,6 +36,15 @@
   --cx-slate-900: #0f172a;
   --cx-card-bg: #ffffff;
   --cx-card-border: rgba(0, 0, 0, 0.06);
+
+  /* The brand gradient and the accents the page stylesheets used to hard-code.
+     Same values as before — they are variables now so a market can restate the
+     palette in one block instead of the sheets being hunted through. */
+  --cx-brand-from: #06b6d4;
+  --cx-brand-from-rgb: 6, 182, 212;
+  --cx-brand-to: #10b981;
+  --cx-brand-to-rgb: 16, 185, 129;
+  --cx-primary-rgb: 13, 148, 136;
 }
 
 [data-theme='dark'] {
@@ -470,6 +479,12 @@ html[lang='en-IN'] {
   --hims-glow: rgba(29, 78, 216, 0.17);
   --hims-glow-strong: rgba(29, 78, 216, 0.32);
   --hims-gradient-end: #0f766e;
+
+  --cx-brand-from: #1d4ed8;
+  --cx-brand-from-rgb: 29, 78, 216;
+  --cx-brand-to: #0ea5e9;
+  --cx-brand-to-rgb: 14, 165, 233;
+  --cx-primary-rgb: 29, 78, 216;
 }
 
 html[lang='en-IN'][data-theme='dark'] {
@@ -486,4 +501,10 @@ html[lang='en-IN'][data-theme='dark'] {
   --hims-glow: rgba(59, 130, 246, 0.2);
   --hims-glow-strong: rgba(37, 99, 235, 0.4);
   --hims-gradient-end: #2dd4bf;
+
+  --cx-brand-from: #60a5fa;
+  --cx-brand-from-rgb: 96, 165, 250;
+  --cx-brand-to: #38bdf8;
+  --cx-brand-to-rgb: 56, 189, 248;
+  --cx-primary-rgb: 96, 165, 250;
 }

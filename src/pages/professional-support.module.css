@@ -24,7 +24,7 @@
   transform: translateX(-50%);
   width: 800px;
   height: 500px;
-  background: radial-gradient(ellipse, rgba(6, 182, 212, 0.08) 0%, transparent 70%);
+  background: radial-gradient(ellipse, rgba(var(--cx-brand-from-rgb), 0.08) 0%, transparent 70%);
   pointer-events: none;
 }
 
@@ -117,7 +117,7 @@
   width: 40px;
   height: 40px;
   border-radius: 50%;
-  background: linear-gradient(135deg, #06b6d4, #10b981);
+  background: linear-gradient(135deg, var(--cx-brand-from), var(--cx-brand-to));
   color: #ffffff;
   display: flex;
   align-items: center;
@@ -178,11 +178,11 @@
 .tierBadge {
   font-size: 0.75rem;
   font-weight: 600;
-  color: #06b6d4;
+  color: var(--cx-brand-from);
   padding: 4px 12px;
   border-radius: 100px;
-  border: 1px solid rgba(6, 182, 212, 0.3);
-  background: rgba(6, 182, 212, 0.08);
+  border: 1px solid rgba(var(--cx-brand-from-rgb), 0.3);
+  background: rgba(var(--cx-brand-from-rgb), 0.08);
   white-space: nowrap;
 }
 
@@ -241,7 +241,7 @@
   width: 6px;
   height: 6px;
   border-radius: 50%;
-  background: #10b981;
+  background: var(--cx-brand-to);
 }
 
 .coverageTags {
@@ -270,7 +270,7 @@
 }
 
 .contactLink {
-  color: #06b6d4;
+  color: var(--cx-brand-from);
   text-decoration: none;
   font-weight: 500;
 }
@@ -291,7 +291,7 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  background: linear-gradient(135deg, #06b6d4, #10b981);
+  background: linear-gradient(135deg, var(--cx-brand-from), var(--cx-brand-to));
   color: #ffffff;
   border-radius: 980px;
   padding: 12px 28px;
@@ -360,8 +360,8 @@
   align-items: center;
   justify-content: center;
   background: transparent;
-  color: #06b6d4;
-  border: 1px solid rgba(6, 182, 212, 0.3);
+  color: var(--cx-brand-from);
+  border: 1px solid rgba(var(--cx-brand-from-rgb), 0.3);
   border-radius: 980px;
   padding: 12px 28px;
   font-size: 0.9375rem;
@@ -372,8 +372,8 @@
 }
 
 .ctaBtn:hover {
-  background: rgba(6, 182, 212, 0.08);
-  color: #06b6d4;
+  background: rgba(var(--cx-brand-from-rgb), 0.08);
+  color: var(--cx-brand-from);
   text-decoration: none;
 }
 

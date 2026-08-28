@@ -44,7 +44,7 @@ export default function Signup(): ReactNode {
             <div className={styles.trustSection}>
               <div className={styles.trustItem}>
                 <span className={styles.trustIcon}>&#x1f512;</span>
-                <span>HIPAA Compliant</span>
+                <span>FHIR R4 Native</span>
               </div>
               <div className={styles.trustItem}>
                 <span className={styles.trustIcon}>&#x1f4e6;</span>

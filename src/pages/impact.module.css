@@ -24,7 +24,7 @@
   transform: translateX(-50%);
   width: 800px;
   height: 500px;
-  background: radial-gradient(ellipse, rgba(6, 182, 212, 0.08) 0%, transparent 70%);
+  background: radial-gradient(ellipse, rgba(var(--cx-brand-from-rgb), 0.08) 0%, transparent 70%);
   pointer-events: none;
 }
 
@@ -57,7 +57,7 @@
 }
 
 .gradient {
-  background: linear-gradient(135deg, #06b6d4 0%, #10b981 100%);
+  background: linear-gradient(135deg, var(--cx-brand-from) 0%, var(--cx-brand-to) 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -103,7 +103,7 @@
 .statValue {
   font-size: clamp(1.5rem, 3vw, 2rem);
   font-weight: 900;
-  background: linear-gradient(135deg, #06b6d4, #10b981);
+  background: linear-gradient(135deg, var(--cx-brand-from), var(--cx-brand-to));
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -194,8 +194,8 @@
   align-items: center;
   justify-content: center;
   border-radius: 12px;
-  background: linear-gradient(135deg, rgba(6, 182, 212, 0.1), rgba(16, 185, 129, 0.1));
-  color: #0d9488;
+  background: linear-gradient(135deg, rgba(var(--cx-brand-from-rgb), 0.1), rgba(var(--cx-brand-to-rgb), 0.1));
+  color: var(--ifm-color-primary);
   margin-bottom: 1rem;
 }
 
@@ -249,7 +249,7 @@
 .btnPrimary {
   display: inline-flex;
   align-items: center;
-  background: linear-gradient(135deg, #06b6d4, #10b981);
+  background: linear-gradient(135deg, var(--cx-brand-from), var(--cx-brand-to));
   color: #ffffff;
   border-radius: 980px;
   padding: 14px 32px;

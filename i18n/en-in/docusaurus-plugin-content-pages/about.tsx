@@ -47,7 +47,8 @@ export default function About(): ReactNode {
                   hospital networks.
                 </p>
                 <p className={styles.missionText}>
-                  We deliver a complete, HIPAA-compliant platform built on open standards
+                  We deliver a complete platform built on open standards, with data practices
+                  aligned to the Digital Personal Data Protection Act, 2023,
                   like FHIR R4 and HL7 v2, available as a managed cloud service or
                   self-hosted on your own infrastructure. We serve clinics, hospitals, and
                   healthcare organizations of all sizes, from single-site practices to

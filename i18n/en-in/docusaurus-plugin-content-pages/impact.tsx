@@ -5,10 +5,10 @@ import Heading from '@theme/Heading';
 import styles from '@site/src/pages/impact.module.css';
 
 const stats = [
-  { value: '30M+', label: 'Americans lack access to basic health records technology' },
-  { value: 'FHIR R4', label: 'Native standards support, so records follow the patient' },
-  { value: '0', label: 'Per-patient fees — you pay for the platform, not your caseload' },
-  { value: 'Cloud or self-hosted', label: 'Deploy the way your organization needs' },
+  { value: '23 modules', label: 'Registration to final bill in one system, switched on as you need them' },
+  { value: 'ABDM', label: 'Connectivity built into the product, not sold as a custom project' },
+  { value: '0', label: 'Per-user and per-patient fees — you pay for the platform, not your census' },
+  { value: 'On-premise', label: 'Or our managed cloud — the same software either way, and your data stays yours' },
 ];
 
 const programs = [
@@ -19,8 +19,8 @@ const programs = [
         <path d="M12 6v4M10 8h4" />
       </svg>
     ),
-    title: 'Community Health Centers',
-    description: 'Free HIMS deployments for federally qualified health centers (FQHCs), free clinics, and rural health facilities that serve uninsured and underinsured populations.',
+    title: 'Small and single-unit hospitals',
+    description: 'Nursing homes, polyclinics and district hospitals are the ones legacy vendors price out — per-bed licensing and paid module unlocks. They get the same 23 modules and the same software as a multi-speciality group.',
   },
   {
     icon: (
@@ -29,8 +29,8 @@ const programs = [
         <path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z" />
       </svg>
     ),
-    title: 'Health Equity',
-    description: 'Multi-language support and culturally responsive design to remove barriers for immigrant, refugee, and underserved communities who face the greatest disparities in healthcare access.',
+    title: 'Local languages and formats',
+    description: 'Indian number grouping, dd/MM/yyyy dates, an April financial year and multi-language screens — so a receptionist in a district hospital is not fighting software written for somebody else\u2019s country.',
   },
   {
     icon: (
@@ -38,8 +38,8 @@ const programs = [
         <polyline points="16 18 22 12 16 6" /><polyline points="8 6 2 12 8 18" />
       </svg>
     ),
-    title: 'Platform Engineering',
-    description: 'Full-time engineers building FHIR R4-compliant, interoperable features so patient data flows seamlessly between providers, labs, pharmacies, and specialists.',
+    title: 'ABDM and national digital health',
+    description: 'Engineers working on Ayushman Bharat Digital Mission connectivity — gateway configuration and verified credentials today, with ABHA enrolment and Scan & Share being released module by module.',
   },
   {
     icon: (
@@ -47,8 +47,8 @@ const programs = [
         <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" /><path d="m9 12 2 2 4-4" />
       </svg>
     ),
-    title: 'Security and Compliance',
-    description: 'Enterprise-grade HIPAA compliance, security audits, and encryption so every patient receives the same level of data protection regardless of where they receive care.',
+    title: 'Security and compliance',
+    description: 'Encryption at rest and in transit, credential handling that never shows a secret back, audited access to records, and data practices aligned to the Digital Personal Data Protection Act, 2023.',
   },
   {
     icon: (
@@ -58,8 +58,8 @@ const programs = [
         <path d="M22 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75" />
       </svg>
     ),
-    title: 'Patient Portal',
-    description: 'Giving patients direct access to their own health records, appointments, messaging, and prescriptions. People in control of their care, not locked out of it.',
+    title: 'Patient access',
+    description: 'In build: patient self-service for appointments, reports and bills, so a family is not queueing at a counter for a report that is already signed. Not shipping yet — this is where the investment is going.',
   },
   {
     icon: (
@@ -67,8 +67,8 @@ const programs = [
         <rect x="2" y="3" width="20" height="14" rx="2" ry="2" /><line x1="8" y1="21" x2="16" y2="21" /><line x1="12" y1="17" x2="12" y2="21" />
       </svg>
     ),
-    title: 'Telehealth',
-    description: 'Built-in video visits so patients in rural and remote areas can connect with providers without traveling hours. Healthcare should come to people, not the other way around.',
+    title: 'Telemedicine',
+    description: 'In build: video consultation and remote follow-up, so a patient in a taluk does not travel half a day for a review. Not shipping yet — named here because it is funded, not because it is finished.',
   },
 ];
 
@@ -76,7 +76,7 @@ export default function Impact(): ReactNode {
   return (
     <Layout
       title="Our Impact"
-      description="How Ciyex builds healthcare technology for providers serving communities that legacy systems price out. Programs, impact areas, and where we invest.">
+      description="How Ciyex builds hospital software for Indian hospitals that legacy vendors price out — what we invest in, and what we are still building.">
       <main className={styles.impactPage}>
         <div className="container">
           {/* Hero */}
@@ -84,12 +84,13 @@ export default function Impact(): ReactNode {
             <div className={styles.heroContent}>
               <div className={styles.badge}>Our Commitment</div>
               <Heading as="h1" className={styles.heroTitle}>
-                Building healthcare access<br />
-                <span className={styles.gradient}>for every community.</span>
+                One hospital system,<br />
+                <span className={styles.gradient}>whatever your size.</span>
               </Heading>
               <p className={styles.heroSubtitle}>
-                30 million Americans lack access to basic health records technology.
-                Ciyex builds the HIMS to change that, one practice at a time.
+                A thirty-bed nursing home should run the same software as a
+                three-hundred-bed hospital. Ciyex HIMS is built so the difference is
+                which modules you switch on, not what you can afford.
               </p>
             </div>
           </div>
@@ -112,16 +113,17 @@ export default function Impact(): ReactNode {
               <Heading as="h2" className={styles.sectionTitle}>The Problem</Heading>
               <div className={styles.contentCard}>
                 <p className={styles.contentText}>
-                  Healthcare technology in America is broken. Proprietary HIMS systems charge
-                  per-patient fees that put modern health records out of reach for the clinics
-                  that serve the most vulnerable populations. Community health centers, free
-                  clinics, and rural providers are forced to choose between outdated paper records
-                  and software they cannot afford.
+                  Most Indian hospitals do not run one system. They run a billing package at the
+                  counter, a separate ledger in the pharmacy, a lab register the technician keeps
+                  by hand, and a case sheet that lives in a file the MRD clerk has to physically
+                  find. Each was bought separately, none of them talk, and the numbers only meet
+                  at day end if somebody types them in twice.
                 </p>
                 <p className={styles.contentText}>
-                  The result: patients in underserved communities receive fragmented care. Their
-                  records are lost between providers. They repeat the same tests at every visit.
-                  They fall through the cracks of a system that was never designed for them.
+                  The systems that do cover the whole hospital are priced per bed or per user, and
+                  charge again to unlock a module. So the smaller the hospital, the more of it
+                  stays on paper — and the patient is the one who repeats the test, carries the
+                  file, and waits at the counter.
                 </p>
               </div>
             </div>
@@ -133,15 +135,17 @@ export default function Impact(): ReactNode {
               <Heading as="h2" className={styles.sectionTitle}>Our Approach</Heading>
               <div className={styles.contentCard}>
                 <p className={styles.contentText}>
-                  Ciyex takes a fundamentally different approach. We build healthcare technology
-                  as infrastructure you control, designed from the ground up for the providers
-                  legacy vendors price out.
+                  Ciyex takes a different approach. Every module is a switch, not a line item. A
+                  polyclinic runs registration, OPD, pharmacy and billing; a multi-speciality
+                  hospital adds wards, theatre, blood bank and payroll. Same software, same price
+                  basis, no licence renegotiation to turn something on.
                 </p>
                 <p className={styles.contentText}>
-                  By building on open standards like FHIR R4, we ensure patient data flows
-                  seamlessly between providers, ending the cycle of lost records and repeated
-                  tests. Deploy on our managed cloud or self-host on your own infrastructure —
-                  with transparent licensing, no vendor lock-in, and no per-patient fees, ever.
+                  Underneath, the record is FHIR R4 and the interfaces are HL7 and DICOM, so
+                  analysers and modalities on your network talk to it and anything you build later
+                  talks to a documented standard. Run it on our managed cloud or on a server inside
+                  the hospital — the same software either way, with no per-user licence, no
+                  per-patient fee, and your data still yours.
                 </p>
               </div>
             </div>
@@ -171,11 +175,11 @@ export default function Impact(): ReactNode {
           <section className={styles.ctaSection}>
             <div className={styles.ctaInner}>
               <Heading as="h2" className={styles.ctaTitle}>
-                Join the movement for<br />open healthcare.
+                See it on your<br />own hospital.
               </Heading>
               <p className={styles.ctaDesc}>
-                Whether you run a community health center, volunteer at a free clinic,
-                or believe healthcare is a right, there is a place for you.
+                Nursing home, polyclinic or multi-speciality — tell us how your hospital runs
+                today and we will map it module by module.
               </p>
               <div className={styles.ctaButtons}>
                 <Link className={styles.btnSecondary} to="/signup">

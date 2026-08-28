@@ -192,7 +192,10 @@ const config: Config = {
 
   themeConfig: {
     // Replace with your project's social card
-    image: 'img/ciyex-social-card.jpg',
+    // Each market shares its own card: the wordmark and the claim differ, and
+    // the file the config pointed at never existed, so every share of either
+    // site came through without a preview image at all.
+    image: IS_INDIA ? 'img/ciyex-social-card-in.jpg' : 'img/ciyex-social-card.jpg',
     colorMode: {
       respectPrefersColorScheme: true,
     },

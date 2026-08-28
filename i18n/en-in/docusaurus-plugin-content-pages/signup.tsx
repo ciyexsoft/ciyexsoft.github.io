@@ -22,7 +22,7 @@ export default function Signup(): ReactNode {
   return (
     <Layout
       title="Sign Up - It's Free"
-      description="Sign up for Ciyex HIMS - Schedule a free demo and get started with modern electronic health records.">
+      description="Book a free demo of Ciyex HIMS — hospital management software for Indian hospitals and clinics, from registration and UHID through to the final bill.">
       <main className={styles.signupPage}>
         <div className="container">
           <div className={styles.signupCard}>
@@ -35,16 +35,16 @@ export default function Signup(): ReactNode {
                 Get Started with Ciyex HIMS
               </Heading>
               <p className={styles.subtitle}>
-                Schedule a free consultation to learn how Ciyex HIMS can help
-                your community. Our team will walk you through setup,
-                features, and answer any questions.
+                Book a free consultation and we will walk your team through Ciyex HIMS
+                using your wards, your tariffs and your number series — setup, the modules
+                you would switch on, and whatever you want to ask.
               </p>
             </div>
             <CalendlyEmbed />
             <div className={styles.trustSection}>
               <div className={styles.trustItem}>
                 <span className={styles.trustIcon}>&#x1f512;</span>
-                <span>HIPAA Compliant</span>
+                <span>DPDP Act 2023</span>
               </div>
               <div className={styles.trustItem}>
                 <span className={styles.trustIcon}>&#x1f4e6;</span>
@@ -52,7 +52,7 @@ export default function Signup(): ReactNode {
               </div>
               <div className={styles.trustItem}>
                 <span className={styles.trustIcon}>&#x1f30d;</span>
-                <span>HIPAA Compliant</span>
+                <span>ABDM-Ready</span>
               </div>
             </div>
           </div>
