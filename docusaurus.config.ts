@@ -64,7 +64,11 @@ const config: Config = {
         alternateName: 'Ciyex',
         url: 'https://ciyex.com',
         logo: 'https://ciyex.com/img/Ciyex-logo-no-text.png',
-        description: 'Commercial electronic health records and hospital information management software. Modern, secure, FHIR-compliant, and built for healthcare interoperability.',
+        // Structured data is what a search engine reads before anything on the
+        // page, and it led with "electronic health records" in both markets.
+        description: IS_INDIA
+          ? 'Hospital information management software for hospitals and clinics in India. Registration and UHID, OPD, wards, laboratory, pharmacy, GST billing and discharge, with ABDM connectivity. Modern, secure and FHIR-compliant.'
+          : 'Commercial electronic health records and hospital information management software. Modern, secure, FHIR-compliant, and built for healthcare interoperability.',
         foundingDate: '2025',
         address: ADDRESS,
         contactPoint: {
