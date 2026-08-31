@@ -28,7 +28,8 @@ export type HimsIconName =
 	'front-desk' | 'opd' | 'diagnostics' | 'records' | 'admin' | 'uhid-card' | 'calendar' |
 	'receipt' | 'stethoscope' | 'casualty' | 'ward-bed' | 'bed-board' | 'nursing' | 'theatre' |
 	'blood-tube' | 'x-ray' | 'capsule' | 'stores' | 'blood-drop' | 'discharge' | 'staff' |
-	'ambulance' | 'ledger' | 'microscope' | 'parameter' | 'branch' | 'insurance';
+	'ambulance' | 'ledger' | 'microscope' | 'parameter' | 'branch' | 'insurance' | 'lock' |
+	'clock' | 'refresh';
 
 const GLYPHS: Record<HimsIconName, Glyph> = {
 	'front-desk': {
@@ -126,6 +127,17 @@ const GLYPHS: Record<HimsIconName, Glyph> = {
 	},
 	'insurance': {
 		paths: ["M12 2.5 20 5.6v6c0 4.6-3.3 8-8 9.9-4.7-1.9-8-5.3-8-9.9v-6Z", "M12 9v5M9.5 11.5h5"],
+	},
+	'lock': {
+		paths: ["M8 10.5V7.8a4 4 0 0 1 8 0v2.7"],
+		rects: [[4.5, 10.5, 15, 10, 2]],
+	},
+	'clock': {
+		paths: ["M12 6.8V12l3.6 2.2"],
+		circles: [[12, 12, 8.6]],
+	},
+	'refresh': {
+		paths: ["M20.5 12a8.5 8.5 0 1 1-2.6-6.1", "M20.8 4.2v4.6h-4.6"],
 	},
 };
 

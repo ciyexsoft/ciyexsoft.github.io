@@ -412,3 +412,56 @@
     padding: 32px 24px;
   }
 }
+
+/* ──────────────────────────────────────────────────────────────────────────
+ * Service grid (India support page).
+ *
+ * Replaces the flat bulleted service list the vendor card used to carry. Only
+ * the India page renders these; the US page still uses .serviceList above.
+ * ────────────────────────────────────────────────────────────────────────── */
+.serviceGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 1.15rem;
+}
+
+.serviceCard {
+  background: var(--cx-card-bg);
+  border: 1px solid var(--cx-card-border);
+  border-radius: 16px;
+  padding: 1.5rem;
+  transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.serviceCard:hover {
+  transform: translateY(-3px);
+  border-color: var(--ifm-color-primary);
+  box-shadow: 0 16px 34px rgba(var(--cx-primary-rgb), 0.16);
+}
+
+.serviceIcon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  border-radius: 11px;
+  margin-bottom: 0.9rem;
+  color: var(--ifm-color-primary);
+  background: rgba(var(--cx-primary-rgb), 0.09);
+  border: 1px solid rgba(var(--cx-primary-rgb), 0.16);
+}
+
+.serviceTitle {
+  font-size: 1rem;
+  font-weight: 700;
+  margin: 0 0 0.45rem;
+  color: var(--ifm-heading-color);
+}
+
+.serviceText {
+  font-size: 0.87rem;
+  line-height: 1.6;
+  color: var(--cx-slate-500);
+  margin: 0;
+}
