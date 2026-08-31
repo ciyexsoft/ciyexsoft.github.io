@@ -237,3 +237,36 @@
     padding: 64px 16px 48px;
   }
 }
+
+/* Icon tile for the India About cards, which draw a glyph rather than an emoji.
+   A separate class so the US page's emoji keep their existing treatment. */
+.infoIconGlyph {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 46px;
+  height: 46px;
+  border-radius: 12px;
+  margin-bottom: 0.9rem;
+  color: var(--ifm-color-primary);
+  background: rgba(var(--cx-primary-rgb), 0.1);
+  border: 1px solid rgba(var(--cx-primary-rgb), 0.18);
+}
+
+/* Corporate Information carries three cards, which land 2 + 1 in the two-column
+   grid and leave a hole. India uses a three-up track that collapses the same way. */
+.infoGridThree {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1px;
+  background: rgba(255, 255, 255, 0.04);
+  border-radius: 20px;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.04);
+}
+
+@media screen and (max-width: 900px) {
+  .infoGridThree {
+    grid-template-columns: 1fr;
+  }
+}
