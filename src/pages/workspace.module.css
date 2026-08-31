@@ -818,3 +818,83 @@
     display: none;
   }
 }
+
+/* ──────────────────────────────────────────────────────────────────────────
+ * Hover, matching the module cards on /en-in/modules.
+ *
+ * Same language in all three places so a card behaves the way it looks like it
+ * will: lift, a coloured border and shadow, a rule drawn across the top, the
+ * heading in the brand colour and the icon tile brightening. The row is the
+ * hover target rather than the panel, so the pointer picks up the pair.
+ * ────────────────────────────────────────────────────────────────────────── */
+.journeyCol,
+.modulePanel {
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.22s ease, border-color 0.22s ease, box-shadow 0.22s ease;
+}
+
+.journeyCol::before,
+.modulePanel::before {
+  content: '';
+  position: absolute;
+  inset: 0 0 auto 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--ifm-color-primary), var(--cx-accent));
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.28s ease;
+  z-index: 1;
+}
+
+.journeyCol:hover,
+.journeyCol:focus-within,
+.moduleRow:hover .modulePanel {
+  transform: translateY(-4px);
+  border-color: var(--ifm-color-primary);
+  box-shadow: 0 18px 38px rgba(var(--cx-primary-rgb), 0.18);
+}
+
+.journeyCol:hover::before,
+.journeyCol:focus-within::before,
+.moduleRow:hover .modulePanel::before {
+  transform: scaleX(1);
+}
+
+.journeyColTitle,
+.moduleTitle,
+.journeyColIcon,
+.moduleIcon {
+  transition: color 0.22s ease, background 0.22s ease, transform 0.22s ease;
+}
+
+.journeyCol:hover .journeyColTitle,
+.moduleRow:hover .moduleTitle {
+  color: var(--ifm-color-primary);
+}
+
+.journeyCol:hover .journeyColIcon,
+.moduleRow:hover .moduleIcon {
+  background: rgba(var(--cx-primary-rgb), 0.16);
+  transform: scale(1.06);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .journeyCol,
+  .modulePanel,
+  .journeyCol::before,
+  .modulePanel::before,
+  .journeyColTitle,
+  .moduleTitle,
+  .journeyColIcon,
+  .moduleIcon {
+    transition: none;
+  }
+
+  .journeyCol:hover,
+  .moduleRow:hover .modulePanel,
+  .journeyCol:hover .journeyColIcon,
+  .moduleRow:hover .moduleIcon {
+    transform: none;
+  }
+}

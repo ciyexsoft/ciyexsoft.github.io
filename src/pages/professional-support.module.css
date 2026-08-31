@@ -465,3 +465,58 @@
   color: var(--cx-slate-500);
   margin: 0;
 }
+
+/* Same hover language as the module cards, so support reads as one site. */
+.serviceCard {
+  position: relative;
+  overflow: hidden;
+}
+
+.serviceCard::before {
+  content: '';
+  position: absolute;
+  inset: 0 0 auto 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--ifm-color-primary), var(--cx-accent));
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.28s ease;
+}
+
+.serviceCard:hover::before,
+.serviceCard:focus-within::before {
+  transform: scaleX(1);
+}
+
+.serviceCard:focus-within {
+  border-color: var(--ifm-color-primary);
+  box-shadow: 0 16px 34px rgba(var(--cx-primary-rgb), 0.16);
+}
+
+.serviceTitle,
+.serviceIcon {
+  transition: color 0.22s ease, background 0.22s ease, transform 0.22s ease;
+}
+
+.serviceCard:hover .serviceTitle {
+  color: var(--ifm-color-primary);
+}
+
+.serviceCard:hover .serviceIcon {
+  background: rgba(var(--cx-primary-rgb), 0.16);
+  transform: scale(1.06);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .serviceCard,
+  .serviceCard::before,
+  .serviceTitle,
+  .serviceIcon {
+    transition: none;
+  }
+
+  .serviceCard:hover,
+  .serviceCard:hover .serviceIcon {
+    transform: none;
+  }
+}
