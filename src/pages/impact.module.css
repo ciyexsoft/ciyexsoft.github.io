@@ -320,3 +320,22 @@
     padding: 32px 24px;
   }
 }
+
+/* Wide layout (India). The content cards were capped at 800px inside a 1000px
+   inner, which leaves the page reading as a narrow strip on a large monitor.
+   Scoped so the US page keeps the measure it has. */
+.impactWide :global(.container) {
+  max-width: 1240px;
+}
+
+.sectionInnerWide {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+.impactWide .contentCard,
+.impactWide .statsGrid,
+.impactWide .programsGrid {
+  max-width: none;
+}

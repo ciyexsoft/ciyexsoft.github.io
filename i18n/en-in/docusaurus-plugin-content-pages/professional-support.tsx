@@ -74,6 +74,11 @@ const SERVICES: readonly { icon: HimsIconName; title: string; text: string }[] =
 		title: 'Ongoing maintenance',
 		text: 'Upgrades, new modules switched on as you grow, and configuration changes as the hospital changes. Unlimited users throughout.',
 	},
+	{
+		icon: 'records',
+		title: 'Backups and recovery',
+		text: 'Encrypted storage with scheduled backups, so a case sheet from three years ago is still there when the record room is asked for it.',
+	},
 ];
 
 const STEPS: readonly { n: string; title: string; text: string }[] = [
@@ -99,7 +104,7 @@ export default function ProfessionalSupport(): ReactNode {
 		<Layout
 			title="Support"
 			description="Support for Ciyex HIMS from the team that builds it — implementation, data migration, staff training, ABDM setup, hosting with 99.9% uptime and 24/7 support for hospitals in India.">
-			<main className={styles.supportPage}>
+			<main className={`${styles.supportPage} ${styles.supportWide}`}>
 				<div className="container">
 
 					{/* Hero */}
@@ -121,7 +126,7 @@ export default function ProfessionalSupport(): ReactNode {
 
 					{/* How it works */}
 					<section className={styles.section}>
-						<div className={styles.sectionInner}>
+						<div className={styles.sectionInnerWide}>
 							<Heading as="h2" className={styles.sectionTitle}>
 								How It Works
 							</Heading>
@@ -139,7 +144,7 @@ export default function ProfessionalSupport(): ReactNode {
 
 					{/* What is covered */}
 					<section className={styles.section}>
-						<div className={styles.sectionInner}>
+						<div className={styles.sectionInnerWide}>
 							<Heading as="h2" className={styles.sectionTitle}>
 								What Support Covers
 							</Heading>
@@ -159,7 +164,7 @@ export default function ProfessionalSupport(): ReactNode {
 
 					{/* Who you are dealing with */}
 					<section className={styles.section}>
-						<div className={styles.sectionInner}>
+						<div className={styles.sectionInnerWide}>
 							<Heading as="h2" className={styles.sectionTitle}>
 								Talk to Us
 							</Heading>
@@ -244,7 +249,7 @@ export default function ProfessionalSupport(): ReactNode {
 
 					{/* Partner programme */}
 					<section className={styles.section}>
-						<div className={styles.sectionInner}>
+						<div className={styles.sectionInnerWide}>
 							<div className={styles.ctaCard}>
 								<Heading as="h2" className={styles.ctaTitle}>
 									Become an Implementation Partner

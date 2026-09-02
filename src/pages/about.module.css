@@ -270,3 +270,152 @@
     grid-template-columns: 1fr;
   }
 }
+
+/* ──────────────────────────────────────────────────────────────────────────
+ * Wide layout (India About).
+ *
+ * The mission card was capped at 800px inside a 900px inner, centred in a
+ * 1140px container: on a wide monitor that is roughly 500px of dead black down
+ * each side, and the card reads as though it failed to load rather than as a
+ * measured column. The narrative keeps a readable measure; the space beside it
+ * now carries the facts a hospital is actually checking for on an About page.
+ * Scoped to .aboutWide so the US page is untouched.
+ * ────────────────────────────────────────────────────────────────────────── */
+.aboutWide :global(.container) {
+  max-width: 1240px;
+}
+
+.sectionInnerWide {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+.missionLayout {
+  display: grid;
+  grid-template-columns: 1.45fr 1fr;
+  gap: 1.5rem;
+  align-items: stretch;
+}
+
+.missionLayout .missionCard {
+  max-width: none;
+  margin: 0;
+}
+
+.factPanel {
+  background: #111827;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 20px;
+  padding: 32px;
+  display: flex;
+  flex-direction: column;
+}
+
+.factPanelTitle {
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--ifm-color-primary);
+  margin: 0 0 1.25rem;
+}
+
+.factRow {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.85rem;
+  padding: 0.8rem 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+}
+
+.factRow:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+.factIcon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  flex: 0 0 auto;
+  border-radius: 10px;
+  color: var(--ifm-color-primary);
+  background: rgba(var(--cx-primary-rgb), 0.12);
+  border: 1px solid rgba(var(--cx-primary-rgb), 0.2);
+}
+
+.factLabel {
+  display: block;
+  font-size: 0.92rem;
+  font-weight: 600;
+  color: #f1f5f9;
+  line-height: 1.35;
+}
+
+.factText {
+  display: block;
+  font-size: 0.8rem;
+  line-height: 1.5;
+  color: #94a3b8;
+  margin-top: 0.15rem;
+}
+
+@media screen and (max-width: 996px) {
+  .missionLayout {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* The narrative column is shorter than the facts panel beside it. Rather than
+   leave the foot of the card empty, it carries the two links a reader wants
+   next — and `margin-top: auto` pins them to the bottom so both columns end level. */
+.missionLinks {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.7rem;
+  margin-top: auto;
+  padding-top: 1.75rem;
+}
+
+.missionCard {
+  display: flex;
+  flex-direction: column;
+}
+
+.missionLinkPrimary,
+.missionLinkGhost {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.62rem 1.25rem;
+  border-radius: 999px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: transform 0.18s ease, background 0.18s ease, border-color 0.18s ease;
+}
+
+.missionLinkPrimary {
+  background: var(--ifm-color-primary);
+  color: #ffffff;
+}
+
+.missionLinkPrimary:hover {
+  color: #ffffff;
+  text-decoration: none;
+  transform: translateY(-2px);
+}
+
+.missionLinkGhost {
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  color: #e2e8f0;
+}
+
+.missionLinkGhost:hover {
+  text-decoration: none;
+  transform: translateY(-2px);
+  border-color: var(--ifm-color-primary);
+  color: var(--ifm-color-primary);
+}

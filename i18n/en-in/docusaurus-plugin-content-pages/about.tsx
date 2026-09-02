@@ -3,7 +3,7 @@ import Link from '@docusaurus/Link';
 import Layout from '@theme/Layout';
 import Heading from '@theme/Heading';
 
-import { HimsIcon } from '@site/src/data/himsIcons';
+import { HimsIcon, type HimsIconName } from '@site/src/data/himsIcons';
 import styles from '@site/src/pages/about.module.css';
 
 /**
@@ -16,12 +16,50 @@ import styles from '@site/src/pages/about.module.css';
  * after the DPDP clause, so it modified the wrong noun.
  */
 
+const FACTS: readonly { icon: HimsIconName; label: string; text: string }[] = [
+	{
+		icon: 'hospital',
+		label: '23 modules',
+		text: 'Front desk to final bill. A hospital switches on the ones it runs.',
+	},
+	{
+		icon: 'insurance',
+		label: 'ABDM-ready',
+		text: 'Gateway credentials and connectivity configured per hospital.',
+	},
+	{
+		icon: 'receipt',
+		label: '₹ and GST',
+		text: 'Indian number grouping, dd/MM/yyyy, April financial year.',
+	},
+	{
+		icon: 'microscope',
+		label: 'FHIR R4, HL7 v2, DICOM',
+		text: 'Analysers and modalities on your network talk to it directly.',
+	},
+	{
+		icon: 'staff',
+		label: 'Unlimited users',
+		text: 'Access by role and permission, not by licence count.',
+	},
+	{
+		icon: 'lock',
+		label: 'Cloud or on-premise',
+		text: 'The same software either way, and your data stays yours.',
+	},
+	{
+		icon: 'branch',
+		label: 'Coimbatore and Sheridan',
+		text: 'Offices in India and the United States.',
+	},
+];
+
 export default function About(): ReactNode {
 	return (
 		<Layout
 			title="About Us"
 			description="Qiaben Healthcare Solutions Pvt Ltd builds Ciyex HIMS — hospital information management software for hospitals and clinics in India, from a single nursing home to a multi-unit group.">
-			<main className={styles.aboutPage}>
+			<main className={`${styles.aboutPage} ${styles.aboutWide}`}>
 				<div className="container">
 
 					{/* Hero */}
@@ -43,11 +81,12 @@ export default function About(): ReactNode {
 
 					{/* Mission */}
 					<section className={styles.section}>
-						<div className={styles.sectionInner}>
+						<div className={styles.sectionInnerWide}>
 							<Heading as="h2" className={styles.sectionTitle}>
 								Our Mission
 							</Heading>
-							<div className={styles.missionCard}>
+							<div className={styles.missionLayout}>
+								<div className={styles.missionCard}>
 								<p className={styles.missionText}>
 									Qiaben Healthcare Solutions Pvt Ltd builds Ciyex — a modern, secure
 									hospital information management system. We believe a thirty-bed nursing
@@ -66,14 +105,37 @@ export default function About(): ReactNode {
 									Our focus is straightforward: take the friction out of adoption, make the
 									record genuinely portable, and let the people at the counter, the ward and
 									the cash desk get on with the work in front of them.
-								</p>
+									</p>
+									<div className={styles.missionLinks}>
+										<Link to="/modules" className={styles.missionLinkPrimary}>
+											See all 23 modules
+										</Link>
+										<Link to="/signup" className={styles.missionLinkGhost}>
+											Book a demo
+										</Link>
+									</div>
+								</div>
+								<aside className={styles.factPanel}>
+									<p className={styles.factPanelTitle}>At a glance</p>
+									{FACTS.map((fact) => (
+										<div key={fact.label} className={styles.factRow}>
+											<span className={styles.factIcon}>
+												<HimsIcon name={fact.icon} size={19} />
+											</span>
+											<span>
+												<span className={styles.factLabel}>{fact.label}</span>
+												<span className={styles.factText}>{fact.text}</span>
+											</span>
+										</div>
+									))}
+								</aside>
 							</div>
 						</div>
 					</section>
 
 					{/* What we build */}
 					<section className={styles.section}>
-						<div className={styles.sectionInner}>
+						<div className={styles.sectionInnerWide}>
 							<Heading as="h2" className={styles.sectionTitle}>
 								What We Build
 							</Heading>
@@ -107,17 +169,31 @@ export default function About(): ReactNode {
 										</Link>
 									</p>
 								</div>
+								<div className={styles.infoCard}>
+									<div className={styles.infoIconGlyph}>
+										<HimsIcon name="lock" size={26} />
+									</div>
+									<h3 className={styles.infoLabel}>Deployment &amp; support</h3>
+									<p className={styles.infoValue}>
+										Managed cloud on Azure or AWS, or a server inside the hospital.
+										Setup, data migration, training desk by desk and 24/7 support come
+										from the team that writes the software.<br />
+										<Link to="/professional-support" className={styles.infoLink}>
+											How support works
+										</Link>
+									</p>
+								</div>
 							</div>
 						</div>
 					</section>
 
 					{/* Corporate information */}
 					<section className={styles.section}>
-						<div className={styles.sectionInner}>
+						<div className={styles.sectionInnerWide}>
 							<Heading as="h2" className={styles.sectionTitle}>
 								Corporate Information
 							</Heading>
-							<div className={styles.infoGrid}>
+							<div className={styles.infoGridThree}>
 								<div className={styles.infoCard}>
 									<div className={styles.infoIconGlyph}>
 										<HimsIcon name="branch" size={26} />

@@ -520,3 +520,15 @@
     transform: none;
   }
 }
+
+/* Wide layout (India). At 900px the eight support cards sat two-up with a wide
+   gutter each side; at 1200 they run three-up and the row is filled. */
+.supportWide :global(.container) {
+  max-width: 1240px;
+}
+
+.sectionInnerWide {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px;
+}

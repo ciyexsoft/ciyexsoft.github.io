@@ -77,7 +77,7 @@ export default function Impact(): ReactNode {
     <Layout
       title="Our Impact"
       description="How Ciyex builds hospital software for Indian hospitals that legacy vendors price out — what we invest in, and what we are still building.">
-      <main className={styles.impactPage}>
+      <main className={`${styles.impactPage} ${styles.impactWide}`}>
         <div className="container">
           {/* Hero */}
           <div className={styles.hero}>
@@ -109,7 +109,7 @@ export default function Impact(): ReactNode {
 
           {/* The Problem */}
           <section className={styles.section}>
-            <div className={styles.sectionInner}>
+            <div className={styles.sectionInnerWide}>
               <Heading as="h2" className={styles.sectionTitle}>The Problem</Heading>
               <div className={styles.contentCard}>
                 <p className={styles.contentText}>
@@ -131,7 +131,7 @@ export default function Impact(): ReactNode {
 
           {/* Our Approach */}
           <section className={styles.section}>
-            <div className={styles.sectionInner}>
+            <div className={styles.sectionInnerWide}>
               <Heading as="h2" className={styles.sectionTitle}>Our Approach</Heading>
               <div className={styles.contentCard}>
                 <p className={styles.contentText}>
@@ -153,7 +153,7 @@ export default function Impact(): ReactNode {
 
           {/* Programs */}
           <section className={styles.section}>
-            <div className={styles.sectionInner}>
+            <div className={styles.sectionInnerWide}>
               <Heading as="h2" className={styles.sectionTitle}>Where We Invest</Heading>
               <p className={styles.sectionSubtitle}>
                 What we build with the revenue our customers trust us with — and the areas
