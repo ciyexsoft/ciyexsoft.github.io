@@ -7,7 +7,7 @@ function CalendlyEmbed() {
   return (
     <div className={styles.calendlyContainer}>
       <iframe
-        src="https://calendly.com/qiaben/ciyex?hide_gdpr_banner=1"
+        src="https://calendly.com/help-ciyex/ciyex-hims-demo-session?hide_gdpr_banner=1"
         width="100%"
         height="100%"
         frameBorder="0"
